@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robert Vickery | Author • Folklorist • Lyricist | Vickery Creative</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Playfair Display, Cinzel Decorative, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#090a0d',
+            charcoal: '#111318',
+            ash: '#181b22',
+            slateBorder: '#272c38',
+            parchment: '#f0ece1',
+            parchmentMuted: '#c5bdae',
+            amberGlow: '#d97706',
+            amberBright: '#f59e0b',
+            crimsonMuted: '#8b1e28'
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090a0d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272c38;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d97706;
+    }
+
+    /* Ambient Mist Gradient */
+    .gothic-radial {
+      background: radial-gradient(circle at 50% 20%, rgba(217, 119, 6, 0.08) 0%, rgba(9, 10, 13, 0.95) 70%, #090a0d 100%);
+    }
+
+    /* Card Glow on Hover */
+    .card-glow {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-glow:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px -12px rgba(217, 119, 6, 0.16), 0 0 0 1px rgba(217, 119, 6, 0.35);
+    }
+
+    /* Custom Reader Themes */
+    .reader-theme-parchment {
+      background-color: #f7f3e8;
+      color: #1e1e1e;
+    }
+    .reader-theme-sepia {
+      background-color: #241e17;
+      color: #dfcfb9;
+    }
+    .reader-theme-midnight {
+      background-color: #0b0d12;
+      color: #d6d9e0;
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian text-parchmentMuted font-sans antialiased selection:bg-amberGlow selection:text-white relative min-h-screen overflow-x-hidden">
+
+  <!-- Ambient Fog & Ember Canvas -->
+  <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Sticky Top Navigation -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-obsidian/80 border-b border-slateBorder/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand & Monogram -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg bg-ash border border-amberGlow/40 flex items-center justify-center text-amberBright font-cinzel font-bold text-lg group-hover:border-amberBright transition-colors shadow-inner">
+          RV
+        </div>
+        <div>
+          <span class="block font-cinzel text-parchment tracking-wider font-bold text-sm sm:text-base group-hover:text-amberBright transition-colors">
+            ROBERT VICKERY
+          </span>
+          <span class="block font-mono text-[10px] tracking-widest uppercase text-amberGlow/90">
+            Vickery Creative / Vickerian
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-mono">
+        <a href="#works" class="hover:text-amberBright transition-colors">Selected Works</a>
+        <a href="#listening" class="hover:text-amberBright transition-colors">Audio Station</a>
+        <a href="#dossier" class="hover:text-amberBright transition-colors">Editorial Dossier</a>
+        <a href="#contact" class="hover:text-amberBright transition-colors">Inquiries</a>
+      </nav>
+
+      <!-- Ambient Audio Bar Quick Widget -->
+      <div class="flex items-center gap-4">
+        <button id="navSoundToggle" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-ash border border-slateBorder text-xs text-parchmentMuted hover:text-amberBright hover:border-amberGlow/50 transition-all">
+          <i id="navSoundIcon" class="ph-bold ph-speaker-simple-slash text-amberGlow"></i>
+          <span id="navSoundLabel" class="hidden sm:inline font-mono text-[11px]">Hearth Ambiance</span>
+        </button>
+
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amberGlow/20 border border-amberGlow/60 text-amberBright text-xs font-mono font-medium hover:bg-amberGlow hover:text-obsidian transition-all duration-200">
+          <i class="ph-bold ph-feather"></i>
+          <span>Dispatch</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden text-2xl text-parchment focus:outline-none" aria-label="Toggle Navigation Menu">
+          <i class="ph-bold ph-list"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-3 pb-6 bg-charcoal border-b border-slateBorder flex flex-col space-y-4 font-mono text-xs uppercase tracking-wider">
+      <a href="#works" class="mobile-nav-link py-1 hover:text-amberBright">Selected Works</a>
+      <a href="#listening" class="mobile-nav-link py-1 hover:text-amberBright">Audio Station</a>
+      <a href="#dossier" class="mobile-nav-link py-1 hover:text-amberBright">Editorial Dossier</a>
+      <a href="#contact" class="mobile-nav-link py-1 hover:text-amberBright">Dispatch & Contact</a>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="relative z-10">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-24 pb-20 lg:pt-32 lg:pb-32 gothic-radial border-b border-slateBorder/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <!-- Overhead Label -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ash/90 border border-amberGlow/40 text-amberBright text-[11px] font-mono tracking-widest uppercase mb-6 shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-amberBright animate-ping"></span>
+          Southern Gothic • Folkloric Speculation • Lyrical Production
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-parchment tracking-tight leading-[1.1] mb-6">
+          Words Cured in Hearth-Smoke,<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amberBright via-amber-200 to-amberGlow italic font-serif">
+            Iron-Grip Cadence & Dark Mire.
+          </span>
+        </h1>
+
+        <!-- Subtitle Bio / Manifesto -->
+        <p class="max-w-2xl mx-auto text-base sm:text-lg text-parchmentMuted/90 leading-relaxed font-light mb-10">
+          The literary, critical, and musical archives of <span class="text-parchment font-medium">Robert Vickery</span>. 
+          Exploring psychological horror, Appalachian and Gulf Coast mythologies, subverted children's folklore, and gritty hip-hop cadence under the creative moniker <span class="text-amberBright font-mono">White Boy Vick</span>.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+          <a href="#works" class="px-6 py-3.5 rounded-xl bg-amberGlow text-obsidian font-mono text-xs uppercase tracking-wider font-bold shadow-lg shadow-amberGlow/20 hover:bg-amberBright transition-all duration-200 flex items-center gap-2">
+            <i class="ph-bold ph-book-open text-base"></i>
+            <span>Explore The Compendium</span>
+          </a>
+          <a href="#listening" class="px-6 py-3.5 rounded-xl bg-ash border border-slateBorder text-parchment font-mono text-xs uppercase tracking-wider font-semibold hover:border-amberGlow/50 hover:text-amberBright transition-all duration-200 flex items-center gap-2">
+            <i class="ph-bold ph-wave-sine text-base text-amberGlow"></i>
+            <span>Enter Listening Room</span>
+          </a>
+        </div>
+
+        <!-- Quick Metric Badges -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left font-mono">
+          <div class="p-4 rounded-xl bg-ash/70 border border-slateBorder/80 backdrop-blur-sm">
+            <div class="text-xs text-amberGlow/90 uppercase tracking-widest mb-1">Featured Prose</div>
+            <div class="text-xl sm:text-2xl font-bold text-parchment font-serif">Top 5 / 55</div>
+            <div class="text-[11px] text-parchmentMuted/70">CommuterLit Selection</div>
+          </div>
+          <div class="p-4 rounded-xl bg-ash/70 border border-slateBorder/80 backdrop-blur-sm">
+            <div class="text-xs text-amberGlow/90 uppercase tracking-widest mb-1">Anthology Spec</div>
+            <div class="text-xl sm:text-2xl font-bold text-parchment font-serif">Dark Helix</div>
+            <div class="text-[11px] text-parchmentMuted/70">Fairy Tale Subversion</div>
+          </div>
+          <div class="p-4 rounded-xl bg-ash/70 border border-slateBorder/80 backdrop-blur-sm">
+            <div class="text-xs text-amberGlow/90 uppercase tracking-widest mb-1">Prize Target</div>
+            <div class="text-xl sm:text-2xl font-bold text-parchment font-serif">$3,000 Final</div>
+            <div class="text-[11px] text-parchmentMuted/70">Fractured & Fused</div>
+          </div>
+          <div class="p-4 rounded-xl bg-ash/70 border border-slateBorder/80 backdrop-blur-sm">
+            <div class="text-xs text-amberGlow/90 uppercase tracking-widest mb-1">Audio Catalog</div>
+            <div class="text-xl sm:text-2xl font-bold text-parchment font-serif">UnitedMasters</div>
+            <div class="text-[11px] text-parchmentMuted/70">White Boy Vick Discography</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SELECTED WORKS / COMPENDIUM SECTION -->
+    <section id="works" class="py-24 border-b border-slateBorder/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <div class="font-mono text-amberGlow text-xs tracking-widest uppercase mb-2">Compendium & Portfolio</div>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-parchment">Selected Manuscripts & Records</h2>
+          </div>
+          
+          <!-- Category Filter Tabs -->
+          <div class="mt-6 md:mt-0 flex flex-wrap gap-2 font-mono text-xs" id="filterTabs">
+            <button class="filter-btn active px-4 py-2 rounded-lg bg-amberGlow text-obsidian font-bold transition-all" data-filter="all">All Entries</button>
+            <button class="filter-btn px-4 py-2 rounded-lg bg-ash border border-slateBorder text-parchmentMuted hover:text-amberBright transition-all" data-filter="prose">Prose & Gothic Fiction</button>
+            <button class="filter-btn px-4 py-2 rounded-lg bg-ash border border-slateBorder text-parchmentMuted hover:text-amberBright transition-all" data-filter="poetry">Poetry & Litanies</button>
+            <button class="filter-btn px-4 py-2 rounded-lg bg-ash border border-slateBorder text-parchmentMuted hover:text-amberBright transition-all" data-filter="music">Music & Sound</button>
+            <button class="filter-btn px-4 py-2 rounded-lg bg-ash border border-slateBorder text-parchmentMuted hover:text-amberBright transition-all" data-filter="archival">Folklore & Archival</button>
+          </div>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+
+          <!-- Card 1: Exit 53 -->
+          <div class="portfolio-item card-glow bg-ash/80 rounded-2xl border border-slateBorder/80 p-6 flex flex-col justify-between" data-category="prose">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-4">
+                <span class="px-2.5 py-1 rounded bg-amberGlow/10 text-amberBright border border-amberGlow/30">Prose • Psychological Thriller</span>
+                <span class="text-parchmentMuted/60">Oct 26 Placement</span>
+              </div>
+              <h3 class="text-2xl font-serif font-bold text-parchment mb-2 leading-snug">The Cut-Off at Exit 53</h3>
+              <p class="text-sm text-parchmentMuted/80 line-clamp-3 mb-6">
+                A rain-drenched stretch of forgotten interstate, broken headlights, and a lingering entity waiting at the dead off-ramp. Featured international short fiction winner on CommuterLit.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slateBorder/60 flex items-center justify-between">
+              <span class="font-mono text-xs text-amberGlow">CommuterLit Featured</span>
+              <button onclick="openStoryModal('exit53')" class="px-3.5 py-1.5 rounded-lg bg-amberGlow/20 hover:bg-amberGlow text-amberBright hover:text-obsidian text-xs font-mono font-semibold transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-book-open-text"></i> Read Excerpt
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Gingy / Bitter-Batch -->
+          <div class="portfolio-item card-glow bg-ash/80 rounded-2xl border border-slateBorder/80 p-6 flex flex-col justify-between" data-category="prose" data-sub="archival">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-4">
+                <span class="px-2.5 py-1 rounded bg-amberGlow/10 text-amberBright border border-amberGlow/30">Fairy Tale Subversion</span>
+                <span class="text-parchmentMuted/60">2,840 Words</span>
+              </div>
+              <h3 class="text-2xl font-serif font-bold text-parchment mb-2 leading-snug">The Bitter-Batch King of Marrow-Hole</h3>
+              <p class="text-sm text-parchmentMuted/80 line-clamp-3 mb-6">
+                A dark Burtonesque and Wonderland-infused deconstruction of The Gingerbread Boy. Baked from sour leaven, snake-root, and scorched sorghum by an eight-foot mountain witch, Gingy wages a guerrilla war on holiday comfort.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slateBorder/60 flex items-center justify-between">
+              <span class="font-mono text-xs text-amberGlow">Dark Helix Anthology</span>
+              <button onclick="openStoryModal('gingy')" class="px-3.5 py-1.5 rounded-lg bg-amberGlow/20 hover:bg-amberGlow text-amberBright hover:text-obsidian text-xs font-mono font-semibold transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-book-open-text"></i> Read Excerpt
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: The Wax and the Wire -->
+          <div class="portfolio-item card-glow bg-ash/80 rounded-2xl border border-slateBorder/80 p-6 flex flex-col justify-between" data-category="prose">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-4">
+                <span class="px-2.5 py-1 rounded bg-amberGlow/10 text-amberBright border border-amberGlow/30">Gothic Flash</span>
+                <span class="text-parchmentMuted/60">Nov 22 Target</span>
+              </div>
+              <h3 class="text-2xl font-serif font-bold text-parchment mb-2 leading-snug">The Wax and the Wire</h3>
+              <p class="text-sm text-parchmentMuted/80 line-clamp-3 mb-6">
+                An intimate, anatomical study of preservation, taxidermy wire, and physical grief in a decaying Gulf Coast homestead. Tailored for the $3,000 Fractured & Fused Prize judged by Richard Mirabella.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slateBorder/60 flex items-center justify-between">
+              <span class="font-mono text-xs text-amberGlow">Fractured & Fused Entry</span>
+              <button onclick="openStoryModal('wax')" class="px-3.5 py-1.5 rounded-lg bg-amberGlow/20 hover:bg-amberGlow text-amberBright hover:text-obsidian text-xs font-mono font-semibold transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-book-open-text"></i> Read Excerpt
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4: An Audit of the Silent Acres -->
+          <div class="portfolio-item card-glow bg-ash/80 rounded-2xl border border-slateBorder/80 p-6 flex flex-col justify-between" data-category="poetry">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-4">
+                <span class="px-2.5 py-1 rounded bg-amberGlow/10 text-amberBright border border-amberGlow/30">Epistolary Prayer / Verse</span>
+                <span class="text-parchmentMuted/60">4:20 AM Vigil</span>
+              </div>
+              <h3 class="text-2xl font-serif font-bold text-parchment mb-2 leading-snug">An Audit of the Silent Acres</h3>
+              <p class="text-sm text-parchmentMuted/80 line-clamp-3 mb-6">
+                A hard-bitten, unvarnished petition addressed to the Padre. Interrogating the spiritual toll of continuous manual endurance, unrecorded labor, and divine silence on the fallow line.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slateBorder/60 flex items-center justify-between">
+              <span class="font-mono text-xs text-amberGlow">Lyrical Litany</span>
+              <button onclick="openStoryModal('prayer')" class="px-3.5 py-1.5 rounded-lg bg-amberGlow/20 hover:bg-amberGlow text-amberBright hover:text-obsidian text-xs font-mono font-semibold transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-book-open-text"></i> Read Text
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 5: Audio Release - The Sandman -->
+          <div class="portfolio-item card-glow bg-ash/80 rounded-2xl border border-slateBorder/80 p-6 flex flex-col justify-between" data-category="music">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-4">
+                <span class="px-2.5 py-1 rounded bg-amberGlow/10 text-amberBright border border-amberGlow/30">White Boy Vick • Track</span>
+                <span class="text-parchmentMuted/60">Single Release</span>
+              </div>
+              <h3 class="text-2xl font-serif font-bold text-parchment mb-2 leading-snug">The Sandman</h3>
+              <p class="text-sm text-parchmentMuted/80 line-clamp-3 mb-6">
+                Downbeat nocturnal trap rhythms woven with Southern Gothic folklore and sleep-paralysis imagery. Mastered for streaming and independent release through UnitedMasters.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slateBorder/60 flex items-center justify-between">
+              <span class="font-mono text-xs text-amberGlow">UnitedMasters</span>
+              <button onclick="loadStationTrack(0)" class="px-3.5 py-1.5 rounded-lg bg-amberGlow/20 hover:bg-amberGlow text-amberBright hover:text-obsidian text-xs font-mono font-semibold transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-play"></i> Queue Track
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 6: Vickery's Fireside Visitor -->
+          <div class="portfolio-item card-glow bg-ash/80 rounded-2xl border border-slateBorder/80 p-6 flex flex-col justify-between" data-category="archival">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-4">
+                <span class="px-2.5 py-1 rounded bg-amberGlow/10 text-amberBright border border-amberGlow/30">Historical Recovery</span>
+                <span class="text-parchmentMuted/60">1880s Story Paper</span>
+              </div>
+              <h3 class="text-2xl font-serif font-bold text-parchment mb-2 leading-snug">Vickery’s Fireside Visitor</h3>
+              <p class="text-sm text-parchmentMuted/80 line-clamp-3 mb-6">
+                Critical archival recovery of late 19th-century American family story papers, examining serialization, penny-dreadful mechanics, and regional working-class fiction.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slateBorder/60 flex items-center justify-between">
+              <span class="font-mono text-xs text-amberGlow">Archival Essay</span>
+              <button onclick="openStoryModal('fireside')" class="px-3.5 py-1.5 rounded-lg bg-amberGlow/20 hover:bg-amberGlow text-amberBright hover:text-obsidian text-xs font-mono font-semibold transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-book-open-text"></i> Read Overview
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILT-IN AUDIO LISTENING STATION -->
+    <section id="listening" class="py-24 bg-charcoal/60 border-b border-slateBorder/40 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="font-mono text-amberGlow text-xs tracking-widest uppercase mb-2">Sonic Production & Spoken Word</div>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-parchment mb-4">The Listening Station</h2>
+          <p class="text-sm text-parchmentMuted/80">
+            Featuring original recordings, spoken word, and atmospheric tracks by <span class="text-parchment font-mono">White Boy Vick</span>. Powered by live synthesized waveforms and direct streaming links.
+          </p>
+        </div>
+
+        <!-- Custom Audio Player Console -->
+        <div class="bg-ash rounded-3xl border border-slateBorder p-6 sm:p-8 max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
+          
+          <!-- Waveform Canvas -->
+          <div class="w-full h-28 bg-obsidian/90 rounded-2xl border border-slateBorder/80 mb-6 relative overflow-hidden flex items-center justify-center">
+            <canvas id="waveformCanvas" class="w-full h-full"></canvas>
+            <div id="visualizerPlaceholder" class="absolute font-mono text-xs text-parchmentMuted/50 tracking-widest uppercase pointer-events-none">
+              Audio Engine Paused • Press Play
+            </div>
+          </div>
+
+          <!-- Active Track Info -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <div id="activeTrackTitle" class="text-xl sm:text-2xl font-serif font-bold text-parchment">
+                The Sandman (Nocturne Cut)
+              </div>
+              <div id="activeTrackArtist" class="text-xs font-mono text-amberGlow tracking-wider">
+                White Boy Vick • UnitedMasters Catalog
+              </div>
+            </div>
+            
+            <!-- External Streaming Portals -->
+            <div class="flex items-center gap-2">
+              <a href="https://www.unitedmasters.com/a/white-boy-vick" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-obsidian border border-slateBorder text-[11px] font-mono text-parchment hover:text-amberBright hover:border-amberGlow/50 transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-vinyl-record text-amberGlow"></i>
+                <span>UnitedMasters</span>
+              </a>
+              <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-obsidian border border-slateBorder text-[11px] font-mono text-parchment hover:text-amberBright hover:border-amberGlow/50 transition-all flex items-center gap-1.5">
+                <i class="ph-bold ph-spotify-logo text-emerald-500"></i>
+                <span>Spotify</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Progress Bar & Seeker -->
+          <div class="mb-6">
+            <div class="w-full bg-obsidian h-2 rounded-full cursor-pointer relative overflow-hidden" id="progressBarContainer">
+              <div id="progressBar" class="bg-gradient-to-r from-amberGlow to-amberBright h-full w-0 transition-all duration-100"></div>
+            </div>
+            <div class="flex justify-between text-[11px] font-mono text-parchmentMuted/60 mt-2">
+              <span id="currentTimeDisplay">0:00</span>
+              <span id="totalDurationDisplay">3:42</span>
+            </div>
+          </div>
+
+          <!-- Player Controls Row -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-slateBorder/60">
+            
+            <div class="flex items-center gap-3">
+              <button id="prevTrackBtn" class="w-10 h-10 rounded-full bg-obsidian border border-slateBorder hover:border-amberGlow/50 text-parchment hover:text-amberBright flex items-center justify-center transition-colors">
+                <i class="ph-bold ph-skip-back"></i>
+              </button>
+
+              <button id="mainPlayBtn" class="w-14 h-14 rounded-full bg-amberGlow hover:bg-amberBright text-obsidian flex items-center justify-center text-xl shadow-lg shadow-amberGlow/20 transition-all">
+                <i id="mainPlayIcon" class="ph-bold ph-play ml-0.5"></i>
+              </button>
+
+              <button id="nextTrackBtn" class="w-10 h-10 rounded-full bg-obsidian border border-slateBorder hover:border-amberGlow/50 text-parchment hover:text-amberBright flex items-center justify-center transition-colors">
+                <i class="ph-bold ph-skip-forward"></i>
+              </button>
+            </div>
+
+            <!-- Volume Control -->
+            <div class="flex items-center gap-3 w-48">
+              <i class="ph-bold ph-speaker-high text-amberGlow text-sm"></i>
+              <input type="range" id="volumeSlider" min="0" max="100" value="70" class="w-full accent-amberBright h-1.5 bg-obsidian rounded-lg cursor-pointer">
+            </div>
+
+            <!-- Track Selector Dropdown -->
+            <div class="relative w-full sm:w-auto">
+              <select id="trackDropdown" class="w-full sm:w-64 bg-obsidian border border-slateBorder text-parchment text-xs font-mono rounded-lg px-3 py-2.5 focus:border-amberGlow focus:outline-none">
+                <option value="0">01. The Sandman (Nocturne Cut)</option>
+                <option value="1">02. Autumn Leaves & Overthinking</option>
+                <option value="2">03. An Audit of the Silent Acres (Spoken)</option>
+                <option value="3">04. Hearth Smoke & River Ice (Drone)</option>
+              </select>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDITORIAL DOSSIER & BIOGRAPHY -->
+    <section id="dossier" class="py-24 border-b border-slateBorder/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Portrait / Visual Card -->
+          <div class="lg:col-span-5">
+            <div class="relative rounded-3xl bg-ash border border-slateBorder p-3 shadow-2xl overflow-hidden group">
+              <div class="w-full aspect-[4/5] rounded-2xl bg-gradient-to-b from-charcoal via-ash to-obsidian border border-slateBorder/60 flex flex-col items-center justify-between p-8 text-center relative overflow-hidden">
+                <div class="w-full flex justify-between items-center text-amberGlow font-mono text-[11px] tracking-widest uppercase">
+                  <span>Dossier #084</span>
+                  <span>Gulf Coast, FL</span>
+                </div>
+                
+                <div class="my-auto">
+                  <div class="w-28 h-28 mx-auto rounded-full bg-obsidian border-2 border-amberGlow/50 flex items-center justify-center text-4xl text-amberBright font-cinzel font-bold mb-4 shadow-xl">
+                    RV
+                  </div>
+                  <h3 class="text-2xl font-serif font-bold text-parchment">Robert Vickery</h3>
+                  <div class="text-xs font-mono text-amberGlow/90 tracking-widest uppercase mt-1">Author • Folklorist • Lyricist</div>
+                </div>
+
+                <div class="w-full border-t border-slateBorder/80 pt-4 text-[11px] font-mono text-parchmentMuted/70 flex justify-between">
+                  <span>Pen: White Boy Vick</span>
+                  <span>Est. 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio & Background Text -->
+          <div class="lg:col-span-7">
+            <div class="font-mono text-amberGlow text-xs tracking-widest uppercase mb-2">Curator & Scholar</div>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-parchment mb-6 leading-tight">
+              An Examination of Fallow Lines, Industrial Rust, and Southern Dark Lore.
+            </h2>
+            
+            <div class="space-y-4 text-parchmentMuted leading-relaxed font-light text-sm sm:text-base">
+              <p>
+                <strong class="text-parchment font-medium">Robert Vickery</strong> is an American author, poet, lyricist, and educator based on the Gulf Coast. His narrative prose navigates the friction of modern working-class resilience, industrial horror, and Southern Gothic folklore—specializing in subversive fairy tale deconstructions that replace domestic comfort with mechanical peril and hard-baked realism.
+              </p>
+              <p>
+                His short fiction has been recognized in competitive international showcases including <em class="text-parchment">CommuterLit</em> (ranking in the top five of fifty-five judged selections) and anthologized through <em class="text-parchment">Dark Helix Press</em>. In poetry and epistolary litanies, his work interrogates unreciprocated labor, human fragility, and theological silence.
+              </p>
+              <p>
+                In addition to his literary writing, he creates independent hip-hop and spoken-word poetry under the moniker <strong class="text-amberBright font-mono">White Boy Vick</strong>, distributed internationally via UnitedMasters. He serves on the instructional humanities faculty in English and Philosophy at Bishop State, directing student initiatives focused on narrative literacy, civic engagement, and community equity.
+              </p>
+            </div>
+
+            <!-- Credentials / Highlights Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slateBorder/60 font-mono text-xs">
+              <div>
+                <span class="block text-amberGlow font-bold">Fiction Honors</span>
+                <span class="text-parchmentMuted/70">CommuterLit Top 5</span>
+              </div>
+              <div>
+                <span class="block text-amberGlow font-bold">Anthology Spec</span>
+                <span class="text-parchmentMuted/70">Dark Helix Press</span>
+              </div>
+              <div>
+                <span class="block text-amberGlow font-bold">Humanities</span>
+                <span class="text-parchmentMuted/70">Faculty, English & Phil</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INQUIRIES & CONTACT DISPATCH -->
+    <section id="contact" class="py-24 bg-charcoal/40 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <div class="font-mono text-amberGlow text-xs tracking-widest uppercase mb-2">Correspondence & Representation</div>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-parchment mb-3">Send a Dispatch</h2>
+          <p class="text-sm text-parchmentMuted/80 max-w-lg mx-auto">
+            Direct all inquiries regarding editorial submissions, anthology rights, readings, speaking engagements, and musical collaborations below.
+          </p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-ash rounded-3xl border border-slateBorder p-8 sm:p-10 shadow-2xl">
+          <form id="contactForm" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-parchment mb-2">Name / Correspondent</label>
+                <input type="text" required placeholder="Your full name" class="w-full bg-obsidian border border-slateBorder rounded-xl px-4 py-3 text-sm text-parchment focus:border-amberBright focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-parchment mb-2">Return Address (Email)</label>
+                <input type="email" required placeholder="name@domain.com" class="w-full bg-obsidian border border-slateBorder rounded-xl px-4 py-3 text-sm text-parchment focus:border-amberBright focus:outline-none transition-colors">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-parchment mb-2">Inquiry Category</label>
+              <select class="w-full bg-obsidian border border-slateBorder rounded-xl px-4 py-3 text-sm text-parchment focus:border-amberBright focus:outline-none transition-colors">
+                <option>Literary Publishing & Rights</option>
+                <option>Anthology & Journal Submissions</option>
+                <option>Audio / Musical Production (White Boy Vick)</option>
+                <option>Academic & Speaking Engagements</option>
+                <option>General Correspondence</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-parchment mb-2">Message or Dispatch</label>
+              <textarea rows="5" required placeholder="Type your inquiry or proposal..." class="w-full bg-obsidian border border-slateBorder rounded-xl px-4 py-3 text-sm text-parchment focus:border-amberBright focus:outline-none transition-colors"></textarea>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs font-mono text-parchmentMuted/60">Response window: 24–48 hours</span>
+              <button type="submit" class="px-8 py-3.5 rounded-xl bg-amberGlow hover:bg-amberBright text-obsidian font-mono text-xs uppercase tracking-widest font-bold shadow-lg shadow-amberGlow/20 transition-all flex items-center gap-2">
+                <i class="ph-bold ph-paper-plane-tilt text-base"></i>
+                <span>Transmit Message</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Custom Feedback Notice Box (Never Alert) -->
+          <div id="formNotification" class="hidden mt-6 p-4 rounded-xl bg-amberGlow/10 border border-amberGlow/40 text-amberBright text-xs font-mono text-center">
+            Your dispatch has been received. Robert Vickery will review your note shortly.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-obsidian border-t border-slateBorder py-14 relative z-10 text-xs font-mono text-parchmentMuted/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div>
+          <div class="text-parchment font-cinzel font-bold text-sm tracking-widest">VICKERY CREATIVE • VICKERIAN STUDIOS</div>
+          <div class="mt-1">© 2026 Robert Vickery. All literary and sound rights reserved worldwide.</div>
+        </div>
+
+        <!-- Social / External Portals -->
+        <div class="flex items-center space-x-6 text-lg text-parchmentMuted">
+          <a href="https://www.unitedmasters.com/a/white-boy-vick" target="_blank" rel="noopener noreferrer" class="hover:text-amberBright transition-colors" title="UnitedMasters">
+            <i class="ph-bold ph-music-notes"></i>
+          </a>
+          <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="hover:text-amberBright transition-colors" title="Spotify">
+            <i class="ph-bold ph-spotify-logo"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-amberBright transition-colors" title="Instagram">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </a>
+          <a href="mailto:rvickeryII@bishop.edu" class="hover:text-amberBright transition-colors" title="Email Contact">
+            <i class="ph-bold ph-envelope"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- IMMERSIVE STORY READER MODAL -->
+  <div id="storyModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-obsidian/90 backdrop-blur-md">
+    <div class="w-full max-w-4xl h-[90vh] rounded-2xl border border-slateBorder flex flex-col shadow-2xl overflow-hidden reader-theme-midnight" id="readerContainer">
+      
+      <!-- Reader Header Bar -->
+      <div class="px-6 py-4 border-b border-slateBorder/60 flex items-center justify-between flex-wrap gap-4 bg-black/20">
+        <div>
+          <h3 id="modalStoryTitle" class="text-xl font-serif font-bold text-parchment">Manuscript Preview</h3>
+          <span id="modalStorySubtitle" class="text-xs font-mono text-amberGlow">Selected Excerpt</span>
+        </div>
+
+        <!-- Reading Controls -->
+        <div class="flex items-center gap-3 text-xs font-mono">
+          <!-- Theme Switcher -->
+          <div class="flex items-center rounded-lg bg-black/40 border border-slateBorder p-1">
+            <button onclick="setReaderTheme('midnight')" class="px-2 py-1 rounded text-parchment hover:text-amberBright" title="Midnight Theme">Dark</button>
+            <button onclick="setReaderTheme('sepia')" class="px-2 py-1 rounded text-parchment hover:text-amberBright" title="Sepia Theme">Sepia</button>
+            <button onclick="setReaderTheme('parchment')" class="px-2 py-1 rounded text-parchment hover:text-amberBright" title="Parchment Theme">Light</button>
+          </div>
+
+          <!-- Font Size Adjusters -->
+          <div class="flex items-center rounded-lg bg-black/40 border border-slateBorder p-1">
+            <button onclick="changeFontSize(-1)" class="px-2 py-1 hover:text-amberBright" title="Decrease Font">A-</button>
+            <button onclick="changeFontSize(1)" class="px-2 py-1 hover:text-amberBright" title="Increase Font">A+</button>
+          </div>
+
+          <!-- Close Modal -->
+          <button onclick="closeStoryModal()" class="w-8 h-8 rounded-full bg-black/40 border border-slateBorder hover:border-amberBright text-parchment flex items-center justify-center transition-colors">
+            <i class="ph-bold ph-x text-base"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Reader Body Text -->
+      <div id="modalStoryContent" class="flex-1 overflow-y-auto p-6 sm:p-12 font-serif text-base sm:text-lg leading-relaxed space-y-6">
+        <!-- Content will be injected dynamically -->
+      </div>
+
+      <!-- Reader Footer Bar -->
+      <div class="px-6 py-3 border-t border-slateBorder/60 flex items-center justify-between text-xs font-mono bg-black/20 text-parchmentMuted/70">
+        <span>Vickery Creative Reading Room</span>
+        <button onclick="closeStoryModal()" class="hover:text-amberBright">Return to Compendium</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // --- 1. Ambient Fog & Ember Canvas Animation ---
+    const canvas = document.getElementById('ambientCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class EmberParticle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = height + Math.random() * 20;
+        this.size = Math.random() * 2.2 + 0.8;
+        this.speedY = Math.random() * 0.7 + 0.3;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.6 + 0.2;
+        this.fade = Math.random() * 0.003 + 0.001;
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        this.opacity -= this.fade;
+        if (this.opacity <= 0 || this.y < -10) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(245, 158, 11, ${this.opacity})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(217, 119, 6, 0.4)';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      particles.push(new EmberParticle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // --- 2. Portfolio Filtering ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-amberGlow', 'text-obsidian', 'font-bold');
+          btn.classList.add('bg-ash', 'border', 'border-slateBorder', 'text-parchmentMuted');
+        });
+        button.classList.add('active', 'bg-amberGlow', 'text-obsidian', 'font-bold');
+        button.classList.remove('bg-ash', 'border', 'border-slateBorder', 'text-parchmentMuted');
+
+        const filter = button.getAttribute('data-filter');
+        portfolioCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          const sub = card.getAttribute('data-sub');
+          if (filter === 'all' || category === filter || sub === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // --- 3. Audio Listening Station & Web Audio Synth Visualizer ---
+    const tracks = [
+      {
+        title: "The Sandman (Nocturne Cut)",
+        artist: "White Boy Vick • UnitedMasters Catalog",
+        duration: "3:42",
+        bpm: 78
+      },
+      {
+        title: "Autumn Leaves & Overthinking",
+        artist: "White Boy Vick • Lyrical Production",
+        duration: "2:58",
+        bpm: 84
+      },
+      {
+        title: "An Audit of the Silent Acres (Spoken)",
+        artist: "Robert Vickery • Epistolary Recitation",
+        duration: "4:15",
+        bpm: 60
+      },
+      {
+        title: "Hearth Smoke & River Ice (Drone)",
+        artist: "Vickerian Ambient Soundscapes",
+        duration: "5:30",
+        bpm: 50
+      }
+    ];
+
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+    let playbackSeconds = 0;
+    let trackInterval = null;
+
+    // Web Audio Synthesizer for Ambient Sound (No external URLs needed)
+    let audioCtx = null;
+    let oscillator = null;
+    let gainNode = null;
+    let isHearthSoundOn = false;
+
+    function initHearthSound() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    const navSoundToggle = document.getElementById('navSoundToggle');
+    const navSoundIcon = document.getElementById('navSoundIcon');
+    const navSoundLabel = document.getElementById('navSoundLabel');
+
+    navSoundToggle.addEventListener('click', () => {
+      initHearthSound();
+      if (!isHearthSoundOn) {
+        // Create soft warm crackle/drone
+        oscillator = audioCtx.createOscillator();
+        gainNode = audioCtx.createGain();
+        oscillator.type = 'triangle';
+        oscillator.frequency.setValueAtTime(65, audioCtx.currentTime); // Low warm drone (C2)
+        gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.start();
+
+        isHearthSoundOn = true;
+        navSoundIcon.className = 'ph-bold ph-speaker-high text-amberBright';
+        navSoundLabel.textContent = 'Hearth Active';
+      } else {
+        if (oscillator) {
+          oscillator.stop();
+          oscillator.disconnect();
+        }
+        isHearthSoundOn = false;
+        navSoundIcon.className = 'ph-bold ph-speaker-simple-slash text-amberGlow';
+        navSoundLabel.textContent = 'Hearth Ambiance';
+      }
+    });
+
+    // Waveform Visualizer Canvas
+    const waveCanvas = document.getElementById('waveformCanvas');
+    const waveCtx = waveCanvas.getContext('2d');
+    let waveWidth, waveHeight;
+
+    function resizeWaveCanvas() {
+      waveWidth = waveCanvas.width = waveCanvas.parentElement.clientWidth;
+      waveHeight = waveCanvas.height = waveCanvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', resizeWaveCanvas);
+    resizeWaveCanvas();
+
+    let wavePhase = 0;
+    function drawWaveform() {
+      waveCtx.clearRect(0, 0, waveWidth, waveHeight);
+
+      if (isPlaying) {
+        document.getElementById('visualizerPlaceholder').style.display = 'none';
+        waveCtx.beginPath();
+        waveCtx.lineWidth = 2.5;
+        waveCtx.strokeStyle = '#f59e0b';
+
+        const bars = 48;
+        const barWidth = waveWidth / bars;
+
+        for (let i = 0; i < bars; i++) {
+          const heightFactor = Math.sin(wavePhase + i * 0.35) * Math.cos(wavePhase * 0.7 + i * 0.2);
+          const barHeight = Math.abs(heightFactor) * (waveHeight * 0.75) + 6;
+          const x = i * barWidth;
+          const y = (waveHeight - barHeight) / 2;
+
+          waveCtx.fillStyle = i % 2 === 0 ? '#f59e0b' : '#d97706';
+          waveCtx.fillRect(x + 2, y, barWidth - 4, barHeight);
+        }
+        wavePhase += 0.08;
+      } else {
+        document.getElementById('visualizerPlaceholder').style.display = 'block';
+      }
+      requestAnimationFrame(drawWaveform);
+    }
+    drawWaveform();
+
+    // Player Controls
+    const mainPlayBtn = document.getElementById('mainPlayBtn');
+    const mainPlayIcon = document.getElementById('mainPlayIcon');
+    const activeTrackTitle = document.getElementById('activeTrackTitle');
+    const activeTrackArtist = document.getElementById('activeTrackArtist');
+    const totalDurationDisplay = document.getElementById('totalDurationDisplay');
+    const currentTimeDisplay = document.getElementById('currentTimeDisplay');
+    const progressBar = document.getElementById('progressBar');
+    const trackDropdown = document.getElementById('trackDropdown');
+    const progressBarContainer = document.getElementById('progressBarContainer');
+
+    function loadStationTrack(index) {
+      currentTrackIndex = index;
+      const track = tracks[currentTrackIndex];
+      activeTrackTitle.textContent = track.title;
+      activeTrackArtist.textContent = track.artist;
+      totalDurationDisplay.textContent = track.duration;
+      trackDropdown.value = index;
+      playbackSeconds = 0;
+      updateProgress();
+      if (!isPlaying) {
+        togglePlay();
+      }
+    }
+
+    function togglePlay() {
+      initHearthSound();
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        mainPlayIcon.className = 'ph-bold ph-pause';
+        trackInterval = setInterval(() => {
+          playbackSeconds++;
+          updateProgress();
+        }, 1000);
+      } else {
+        mainPlayIcon.className = 'ph-bold ph-play ml-0.5';
+        clearInterval(trackInterval);
+      }
+    }
+
+    function updateProgress() {
+      const minutes = Math.floor(playbackSeconds / 60);
+      const seconds = playbackSeconds % 60;
+      currentTimeDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      const totalSec = 220; // Simulated normalization
+      const percent = Math.min((playbackSeconds / totalSec) * 100, 100);
+      progressBar.style.width = `${percent}%`;
+
+      if (percent >= 100) {
+        playbackSeconds = 0;
+        nextTrack();
+      }
+    }
+
+    function nextTrack() {
+      currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+      loadStationTrack(currentTrackIndex);
+    }
+
+    function prevTrack() {
+      currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+      loadStationTrack(currentTrackIndex);
+    }
+
+    mainPlayBtn.addEventListener('click', togglePlay);
+    document.getElementById('nextTrackBtn').addEventListener('click', nextTrack);
+    document.getElementById('prevTrackBtn').addEventListener('click', prevTrack);
+    trackDropdown.addEventListener('change', (e) => loadStationTrack(parseInt(e.target.value)));
+
+    progressBarContainer.addEventListener('click', (e) => {
+      const rect = progressBarContainer.getBoundingClientRect();
+      const clickPos = (e.clientX - rect.left) / rect.width;
+      playbackSeconds = Math.floor(clickPos * 220);
+      updateProgress();
+    });
+
+    // --- 4. Interactive Story Reader Modal System ---
+    const storyManuscripts = {
+      exit53: {
+        title: "The Cut-Off at Exit 53",
+        subtitle: "Featured Selection • CommuterLit",
+        content: `
+          <p class="first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:text-amberBright">
+            The rain along the state line did not fall in drops; it came down in greasy sheets that flattened the sweetgums against the asphalt. By two in the morning, the yellow dashed line had disappeared under three inches of red clay runoff.
+          </p>
+          <p>
+            Eli shifted down into third, the transmission of the '94 Dodge whining like a dry saw blade. The exit ramp had no green interstate sign—only a rusted iron post stripped of its reflective numbers twenty years ago by hurricane salvage crews. Everyone in the basin knew Exit 53 was closed. The state DOT map showed it terminating into six miles of protected wetlands, an abandoned gravel quarry, and the silted-over foundations of an asphalt plant that caught fire in the winter of seventy-nine.
+          </p>
+          <p>
+            Yet the taillights ahead had not stopped. Two dull crimson beads, sitting low to the blacktop, turning deliberately onto the gravel off-ramp. 
+          </p>
+          <p>
+            When Eli hit the turn, his halogen high-beams swept the shoulder. The guardrail didn’t end; it had been crushed inward, crimped like a soda can under an immense, focused weight that left yellow paint scrape marks on the concrete pilings. There was no other car. Only the steady, rhythmic drumming of stormwater rushing down the culvert, and a lone figure standing beside the drainage pipe, holding a canvas duffel bag by a single leather strap.
+          </p>
+          <p>
+            "You took the long curve," the man said when Eli's window cracked an inch. His breath smelled of wood-ash and cheap peppermint. "Most folks spin out on the switchback."
+          </p>
+        `
+      },
+      gingy: {
+        title: "The Bitter-Batch King of Marrow-Hole",
+        subtitle: "Anthology Prose Submission • Dark Helix Press",
+        content: `
+          <p class="first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:text-amberBright">
+            The kitchen of Mistress Malvina MacGloom was not built for sunlight. It sat perched like a broken black molar upon the granite ridge of Mount Gristle, directly where the dead briars of October collided with the frozen, white-pine drifts of late December. Outside its cracked, diamond-pane casements, the seasons did not turn with gentle decorum; they clashed like rusted armor.
+          </p>
+          <p>
+            From beneath the greasy floorboards, she dragged her earthen crock of midnight-harvest leaven: a sourdough starter fed on vinegar, wild sumac, and the black, fermenting cider of wind-fallen pumpkins. Onto her flour-dusted marble slab tumbled the dry goods. Not the tender white wheat of the lowlands, but coarse rye meal ground between millstones that had cracked three gravediggers' chisels.
+          </p>
+          <p>
+            She carved him out with a dull butcher’s knife. She gave him two long, spindly shanks that ended in hooked, clawed toes; two elbows jointed like scissor-blades; and across his face, she gouged a wide, crescent slit. Into that dark trench she pressed sixteen jagged shards of broken red-and-white peppermint rock, forming a crooked, razor-toothed sneer that could strip the bark off a fence-post.
+          </p>
+          <p>
+            "Gingy," she croaked, tapping his hard chest with a ram’s bone. "My little splinter. My bitter-batch soldier. When the iron door rattles, do not march—kick."
+          </p>
+          <p>
+            Inside the darkness, Gingy did not bake; he cured. The heat was an engine of crystallization. The bitter molasses seeped into the rye starch, hardening into an obsidian-dark cuirass. The snake-root ignited his circulatory veins of burnt sugar, and the two peppercorns rolled in their sockets, adjusting to the orange glare of the ash-coals.
+          </p>
+        `
+      },
+      wax: {
+        title: "The Wax and the Wire",
+        subtitle: "Fractured & Fused Prize Contender ($3,000 Award)",
+        content: `
+          <p class="first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:text-amberBright">
+            The armature was always the first thing to survive. Flesh yields to humidity; muscle slackens and surrenders to the blue mold that creeps out of the wainscoting in August. But the galvanized copper wire and the heavy lead shot in the tail stay exactly where the needle drove them.
+          </p>
+          <p>
+            For twenty-four years, Uncle Lyle kept the workroom above the smokehouse. He did not preserve waterfowl for hunters who wanted trophies on mahogany shields; he kept the things the creek brought up after hard freezes. The kingfishers whose eyes had turned to blue marbles in the reeds. The foxes whose joints had set in the ice like knotted pine roots.
+          </p>
+          <p>
+            "A stitch does not hold life," he told me, heating his brass awl over an alcohol lamp. "A stitch holds the posture. The living do not want the dead back; they want the shape of them so the room doesn't feel quite so hollow at supper."
+          </p>
+        `
+      },
+      prayer: {
+        title: "An Audit of the Silent Acres",
+        subtitle: "Epistolary Petition • 4:20 AM Vigil",
+        content: `
+          <p class="italic text-amberBright mb-6">Dear Padre:</p>
+          <p>
+            It’s 4:20 in the morning. The coffee sitting on this laminate is cold, and the pine trees outside the window haven't started shedding mist yet. The highway won’t wake up for another forty minutes, so right now it’s just me, the hum of the refrigerator coil, and a yellow legal pad that won't let the math work out.
+          </p>
+          <p>
+            I’m not looking to trade fields. My boots are muddy from this one, and I know where the roots catch the plow. I’m not asking for dry gravel or a tailwind either. You know how thick my skull is; I never expected an easy run.
+          </p>
+          <p class="font-bold text-parchment">
+            What I want to know is why endurance is the only currency You accept at par. How long do You intend to measure grace by how many sacks of wet feed a man can hoist before his lower discs give out?
+          </p>
+          <p>
+            Yesterday a young mother on my route was counting out nickels for formula while her disconnect notice sat on the dash. Last week a thirty-year mechanic sat on a folding chair waiting on a sack of dry rice, staring at his palms like they were dead meat. You wrote in the book that the meek inherit the dirt. Down here, Padre, the inheritors are getting ground into it, and there isn't enough daylight left to patch the roof.
+          </p>
+          <p>
+            Don't bother with the lightning or the earthquake. Just put a little iron back into knuckles that are about to let go.
+          </p>
+        `
+      },
+      fireside: {
+        title: "Vickery’s Fireside Visitor",
+        subtitle: "Folklore Recovery & Archival Essay",
+        content: `
+          <p class="first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:text-amberBright">
+            In the 1880s, the American family story paper served as both hearthside amusement and populist ideological textbook. Published out of Augusta, Maine, and distributed across rural mailboxes via early third-class postal subsidies, <em>Vickery’s Fireside Visitor</em> reached hundreds of thousands of farmsteads with a blend of melodrama, practical herbalism, and serialized thrillers.
+          </p>
+          <p>
+            This archival project examines how serialized narrative structures shaped working-class reading habits during the second Industrial Revolution. By recovering the forgotten prose of the <em>Visitor</em>, we trace how early American folklore intersected with commercial print culture, providing the structural foundations for the Southern Gothic and dime-novel traditions that followed.
+          </p>
+        `
+      }
+    };
+
+    const storyModal = document.getElementById('storyModal');
+    const modalStoryTitle = document.getElementById('modalStoryTitle');
+    const modalStorySubtitle = document.getElementById('modalStorySubtitle');
+    const modalStoryContent = document.getElementById('modalStoryContent');
+    const readerContainer = document.getElementById('readerContainer');
+
+    let currentFontSize = 18;
+
+    function openStoryModal(key) {
+      const story = storyManuscripts[key];
+      if (!story) return;
+      modalStoryTitle.textContent = story.title;
+      modalStorySubtitle.textContent = story.subtitle;
+      modalStoryContent.innerHTML = story.content;
+      modalStoryContent.style.fontSize = `${currentFontSize}px`;
+      storyModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeStoryModal() {
+      storyModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function setReaderTheme(theme) {
+      readerContainer.classList.remove('reader-theme-parchment', 'reader-theme-sepia', 'reader-theme-midnight');
+      readerContainer.classList.add(`reader-theme-${theme}`);
+    }
+
+    function changeFontSize(delta) {
+      currentFontSize = Math.max(14, Math.min(26, currentFontSize + delta));
+      modalStoryContent.style.fontSize = `${currentFontSize}px`;
+    }
+
+    storyModal.addEventListener('click', (e) => {
+      if (e.target === storyModal) {
+        closeStoryModal();
+      }
+    });
+
+    // Close on Escape Key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !storyModal.classList.contains('hidden')) {
+        closeStoryModal();
+      }
+    });
+
+    // --- 5. Mobile Navigation Menu Toggle ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // --- 6. Contact Form Submission (Safe Notification, No Alert) ---
+    const contactForm = document.getElementById('contactForm');
+    const formNotification = document.getElementById('formNotification');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactForm.reset();
+      formNotification.classList.remove('hidden');
+      setTimeout(() => {
+        formNotification.classList.add('hidden');
+      }, 6000);
+    });
+  </script>
+</body>
+</html>
