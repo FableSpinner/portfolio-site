@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robert Vickery II | Author, Scholar & Musician</title>
-  <meta name="description" content="Official creative and academic portfolio of Robert Vickery II. Featuring Southern Gothic prose, contest poetry, educational curricula, and soundscapes by The Fable Spinner.">
+  <title>Robert Vickery | Author, Folklorist & Musician</title>
+  <meta name="description" content="Official creative portfolio of Robert Vickery and Vickery Creative. Southern Gothic fiction, verse, folklore recovery, and audio by Vickery & The Fable Spinners.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #0a0b0d;
-      --bg-surface: #121418;
-      --bg-card: #181b21;
-      --border-subtle: rgba(212, 175, 55, 0.15);
-      --border-active: rgba(212, 175, 55, 0.45);
-      --text-main: #e2e8f0;
-      --text-muted: #94a3b8;
-      --gold-accent: #d4af37;
-      --gold-glow: rgba(212, 175, 55, 0.25);
+      --bg-dark: #050505;
+      --bg-surface: #0d0e11;
+      --bg-card: #131418;
+      --border-subtle: rgba(255, 122, 0, 0.2);
+      --border-active: rgba(255, 122, 0, 0.6);
+      --text-main: #f1f5f9;
+      --text-muted: #9ca3af;
+      --orange-accent: #ff7a00;
+      --orange-glow: rgba(255, 122, 0, 0.35);
+      --orange-bright: #ff9933;
       --font-display: 'Cinzel', serif;
       --font-serif: 'Cormorant Garamond', serif;
       --font-sans: 'Inter', sans-serif;
@@ -37,8 +38,8 @@
       line-height: 1.6;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 15% 50%, rgba(20, 24, 33, 0.8) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(15, 23, 42, 0.8) 0%, transparent 50%);
+        radial-gradient(circle at 15% 45%, rgba(255, 122, 0, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 85% 25%, rgba(20, 20, 20, 0.9) 0%, transparent 50%);
     }
 
     #ambient-canvas {
@@ -49,11 +50,11 @@
       height: 100vh;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.35;
+      opacity: 0.25;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 2rem;
       position: relative;
@@ -66,7 +67,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(12px);
-      background: rgba(10, 11, 13, 0.85);
+      background: rgba(5, 5, 5, 0.88);
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -87,12 +88,12 @@
     }
 
     .brand-logo span {
-      color: var(--gold-accent);
+      color: var(--orange-accent);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
@@ -106,7 +107,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--gold-accent);
+      color: var(--orange-accent);
     }
 
     /* Hero Section */
@@ -123,9 +124,9 @@
       padding: 0.4rem 1.2rem;
       border: 1px solid var(--border-subtle);
       border-radius: 999px;
-      color: var(--gold-accent);
+      color: var(--orange-accent);
       margin-bottom: 1.5rem;
-      background: rgba(212, 175, 55, 0.05);
+      background: rgba(255, 122, 0, 0.06);
     }
 
     .hero-title {
@@ -135,7 +136,11 @@
       line-height: 1.15;
       margin-bottom: 1.25rem;
       color: #ffffff;
-      text-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+      text-shadow: 0 0 30px rgba(255, 122, 0, 0.15);
+    }
+
+    .hero-title span {
+      color: var(--orange-accent);
     }
 
     .hero-sub {
@@ -143,7 +148,7 @@
       font-size: clamp(1.2rem, 2vw, 1.45rem);
       font-style: italic;
       color: var(--text-muted);
-      max-width: 760px;
+      max-width: 720px;
       margin: 0 auto 2.5rem;
     }
 
@@ -155,27 +160,27 @@
     }
 
     .btn {
-      padding: 0.85rem 1.85rem;
+      padding: 0.85rem 2rem;
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       text-decoration: none;
       border-radius: 4px;
-      font-weight: 500;
+      font-weight: 600;
       transition: all 0.3s ease;
       cursor: pointer;
     }
 
-    .btn-gold {
-      background: var(--gold-accent);
-      color: #000000;
-      border: 1px solid var(--gold-accent);
-      box-shadow: 0 0 15px var(--gold-glow);
+    .btn-orange {
+      background: var(--orange-accent);
+      color: #050505;
+      border: 1px solid var(--orange-accent);
+      box-shadow: 0 0 18px var(--orange-glow);
     }
 
-    .btn-gold:hover {
-      background: #dfbd4a;
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    .btn-orange:hover {
+      background: var(--orange-bright);
+      box-shadow: 0 0 26px rgba(255, 122, 0, 0.55);
       transform: translateY(-2px);
     }
 
@@ -186,172 +191,18 @@
     }
 
     .btn-outline:hover {
-      border-color: var(--gold-accent);
-      color: var(--gold-accent);
-      background: rgba(212, 175, 55, 0.05);
+      border-color: var(--orange-accent);
+      color: var(--orange-accent);
+      background: rgba(255, 122, 0, 0.05);
       transform: translateY(-2px);
     }
 
-    /* Highlight Reel / News Spotlight Banner */
-    .spotlight-banner {
-      background: linear-gradient(135deg, rgba(24, 27, 33, 0.95), rgba(18, 20, 24, 0.95));
-      border: 1px solid var(--border-active);
-      border-radius: 8px;
-      padding: 2.25rem;
-      margin: 2.5rem 0 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.05);
-    }
-
-    .spotlight-content {
-      max-width: 800px;
-    }
-
-    .spotlight-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--gold-accent);
-      background: rgba(212, 175, 55, 0.1);
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-
-    .spotlight-title {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-
-    .spotlight-desc {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: #cbd5e1;
-      line-height: 1.5;
-    }
-
-    .spotlight-link {
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.75rem;
-      background: var(--gold-accent);
-      color: #000;
-      text-decoration: none;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-      border-radius: 4px;
-      transition: all 0.25s ease;
-    }
-
-    .spotlight-link:hover {
-      background: #dfbd4a;
-      transform: translateY(-2px);
-      box-shadow: 0 0 15px var(--gold-glow);
-    }
-
-    /* Section Headers */
-    .section-title-wrap {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      letter-spacing: 0.1em;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-sub {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--text-muted);
-    }
-
-    /* Publication & Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-bottom: 5rem;
-    }
-
-    .pub-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 2.25rem;
-      position: relative;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .pub-card:hover {
-      border-color: var(--gold-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .pub-tag {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--gold-accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .pub-name {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-
-    .pub-details {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: #cbd5e1;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .pub-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--gold-accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .pub-btn:hover {
-      text-decoration: underline;
-    }
-
-    /* Works Filter & Grid */
+    /* Filter Controls */
     .filter-wrapper {
       display: flex;
       justify-content: center;
       gap: 0.75rem;
-      margin-bottom: 2.5rem;
+      margin: 4rem 0 2.5rem;
       flex-wrap: wrap;
     }
 
@@ -369,15 +220,16 @@
     }
 
     .filter-btn.active, .filter-btn:hover {
-      background: var(--gold-accent);
-      color: #000000;
-      border-color: var(--gold-accent);
-      font-weight: 600;
+      background: var(--orange-accent);
+      color: #050505;
+      border-color: var(--orange-accent);
+      font-weight: 700;
     }
 
+    /* Works Grid */
     .works-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
       gap: 2rem;
       margin-bottom: 5rem;
     }
@@ -393,9 +245,9 @@
     }
 
     .work-card:hover {
-      border-color: var(--gold-accent);
+      border-color: var(--orange-accent);
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px var(--gold-glow);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 18px var(--orange-glow);
     }
 
     .card-body {
@@ -409,7 +261,7 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--gold-accent);
+      color: var(--orange-accent);
       margin-bottom: 0.75rem;
     }
 
@@ -431,7 +283,7 @@
     .card-desc {
       font-family: var(--font-serif);
       font-size: 1.15rem;
-      color: #cbd5e1;
+      color: #d1d5db;
       line-height: 1.5;
       margin-bottom: 1.5rem;
       flex-grow: 1;
@@ -439,12 +291,15 @@
 
     .card-action {
       margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding-top: 1.25rem;
     }
 
     .card-link {
-      color: var(--gold-accent);
+      color: var(--orange-accent);
       text-decoration: none;
       font-size: 0.85rem;
       text-transform: uppercase;
@@ -457,57 +312,6 @@
       text-decoration: underline;
     }
 
-    /* Education Section */
-    .edu-section {
-      margin: 5rem 0;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 3rem 2rem;
-    }
-
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.75rem;
-      margin-top: 2rem;
-    }
-
-    .edu-item {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 6px;
-      padding: 1.75rem;
-      transition: all 0.25s ease;
-    }
-
-    .edu-item:hover {
-      border-color: var(--border-active);
-    }
-
-    .edu-badge {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold-accent);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .edu-title {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      color: #ffffff;
-      margin-bottom: 0.75rem;
-    }
-
-    .edu-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-      line-height: 1.5;
-    }
-
     /* Audio Hub */
     .audio-hub {
       background: var(--bg-surface);
@@ -515,6 +319,26 @@
       border-radius: 8px;
       padding: 3rem 2rem;
       margin: 5rem 0;
+    }
+
+    .audio-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .audio-header h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .audio-header p {
+      color: var(--text-muted);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
     }
 
     .player-container {
@@ -545,15 +369,15 @@
 
     .track-info p {
       font-size: 0.85rem;
-      color: var(--gold-accent);
+      color: var(--orange-accent);
     }
 
     #visualizer-canvas {
       width: 100%;
       height: 70px;
-      background: #0d0f12;
+      background: #060709;
       border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 122, 0, 0.15);
     }
 
     .player-controls {
@@ -580,20 +404,20 @@
     .ctrl-btn.play-btn {
       width: 56px;
       height: 56px;
-      background: var(--gold-accent);
-      color: #000;
+      background: var(--orange-accent);
+      color: #050505;
       border: none;
     }
 
     .ctrl-btn:hover {
-      border-color: var(--gold-accent);
-      color: var(--gold-accent);
+      border-color: var(--orange-accent);
+      color: var(--orange-accent);
       transform: scale(1.05);
     }
 
     .ctrl-btn.play-btn:hover {
-      background: #dfbd4a;
-      color: #000;
+      background: var(--orange-bright);
+      color: #050505;
     }
 
     /* Modal Reader */
@@ -603,7 +427,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.92);
       backdrop-filter: blur(8px);
       z-index: 200;
       display: none;
@@ -625,13 +449,7 @@
       border-radius: 8px;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-      animation: modalFadeIn 0.25s ease forwards;
-    }
-
-    @keyframes modalFadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 122, 0, 0.2);
     }
 
     .modal-header {
@@ -640,22 +458,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .modal-controls {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .theme-toggle-btn {
-      background: transparent;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      padding: 0.25rem 0.6rem;
-      border-radius: 3px;
-      font-size: 0.75rem;
-      cursor: pointer;
     }
 
     .modal-close {
@@ -668,7 +470,7 @@
     }
 
     .modal-close:hover {
-      color: var(--gold-accent);
+      color: var(--orange-accent);
     }
 
     .modal-content {
@@ -677,15 +479,10 @@
       font-family: var(--font-serif);
       font-size: 1.25rem;
       line-height: 1.8;
-      color: #e2e8f0;
+      color: #e5e7eb;
     }
 
-    .modal-content.theme-sepia {
-      background: #1c1815;
-      color: #d6cbb8;
-    }
-
-    /* Dossier & Bio */
+    /* Bio & Dossier with Author Image */
     .bio-section {
       padding: 5rem 0;
       border-top: 1px solid var(--border-subtle);
@@ -693,32 +490,28 @@
 
     .bio-grid {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
+      grid-template-columns: 1fr 1.4fr;
       gap: 3.5rem;
       align-items: center;
     }
 
     .bio-photo-card {
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-active);
       border-radius: 8px;
       overflow: hidden;
       background: var(--bg-card);
-      padding: 1rem;
-      text-align: center;
+      padding: 0.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--orange-glow);
     }
 
-    .bio-photo-placeholder {
+    .bio-img {
       width: 100%;
-      height: 380px;
-      background: #0f1217;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      height: 440px;
+      object-fit: cover;
+      object-position: center top;
       border-radius: 4px;
-      border: 1px dashed var(--border-subtle);
-      color: var(--text-muted);
-      font-family: var(--font-display);
+      display: block;
+      filter: contrast(1.05);
     }
 
     .bio-text h2 {
@@ -728,10 +521,14 @@
       color: #ffffff;
     }
 
+    .bio-text h2 span {
+      color: var(--orange-accent);
+    }
+
     .bio-text p {
       font-family: var(--font-serif);
       font-size: 1.2rem;
-      color: #cbd5e1;
+      color: #d1d5db;
       margin-bottom: 1.25rem;
       line-height: 1.7;
     }
@@ -744,13 +541,12 @@
       font-size: 0.85rem;
     }
 
-    @media (max-width: 860px) {
-      .spotlight-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    @media (max-width: 768px) {
       .bio-grid {
         grid-template-columns: 1fr;
+      }
+      .bio-img {
+        height: 360px;
       }
       .nav-links {
         display: none;
@@ -764,12 +560,9 @@
 
   <header>
     <div class="container nav-wrapper">
-      <a href="#" class="brand-logo">Robert <span>Vickery II</span></a>
+      <a href="#" class="brand-logo">Robert <span>Vickery</span></a>
       <ul class="nav-links">
-        <li><a href="#highlight">Spotlight</a></li>
-        <li><a href="#publications">Publications</a></li>
         <li><a href="#works">Works</a></li>
-        <li><a href="#education">Pedagogy</a></li>
         <li><a href="#sound">Sound</a></li>
         <li><a href="#dossier">Dossier</a></li>
       </ul>
@@ -778,64 +571,15 @@
 
   <main>
     <section class="hero container">
-      <div class="hero-badge">Vickery Creative &bull; Recording as The Fable Spinner</div>
-      <h1 class="hero-title">Words on the Wire.<br>Songs in the Dark.</h1>
-      <p class="hero-sub">Southern Gothic fiction, liturgical petitions, academic curricula, and acoustic recordings curated by Robert Vickery II.</p>
+      <div class="hero-badge">Vickery Creative &bull; Music by Vickery &amp; The Fable Spinners</div>
+      <h1 class="hero-title">Words on the Wire.<br><span>Songs in the Dark.</span></h1>
+      <p class="hero-sub">Prose fiction, Southern Gothic folklore, liturgical petitions, and narrative acoustics recorded by Vickery &amp; The Fable Spinners.</p>
       <div class="hero-actions">
-        <a href="#publications" class="btn btn-gold">Featured Releases</a>
-        <a href="#education" class="btn btn-outline">Educational Folios</a>
+        <a href="#works" class="btn btn-orange">Explore the Archive</a>
+        <a href="#sound" class="btn btn-outline">Listen to Soundscapes</a>
       </div>
     </section>
 
-    <!-- Institutional Highlight Reel / News Spotlight -->
-    <section class="container" id="highlight">
-      <div class="spotlight-banner">
-        <div class="spotlight-content">
-          <span class="spotlight-tag">Institutional Milestone &bull; Media Highlight</span>
-          <h2 class="spotlight-title">Troy University Ribbon-Cutting: Center for Student Success</h2>
-          <p class="spotlight-desc">Institutional dedication and ribbon-cutting coverage marking the launch of the Center for Student Success at the Montgomery Campus—championing retention frameworks, instructional access, and comprehensive academic support networks across the region.</p>
-        </div>
-        <a href="https://today.troy.edu/news/troy-cuts-ribbon-on-new-center-for-student-success-at-montgomery-campus/" target="_blank" rel="noopener noreferrer" class="spotlight-link">
-          Read News Coverage &rarr;
-        </a>
-      </div>
-    </section>
-
-    <!-- Publications & Features Section -->
-    <section class="container" id="publications">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Published & Featured</h2>
-        <p class="section-sub">Editorial appearances, journal selections, and active competition features</p>
-      </div>
-
-      <div class="features-grid">
-        <!-- CommuterLit Feature -->
-        <div class="pub-card">
-          <span class="pub-tag">Featured Short Story</span>
-          <h3 class="pub-name">CommuterLit</h3>
-          <p class="pub-details"><strong>"The Cut-Off at Exit 53"</strong> selected as an official featured story. A dark, atmospheric highway thriller navigating forgotten Alabama bypasses and sudden turns in the fog.</p>
-          <a href="https://commuterlit.com" target="_blank" rel="noopener noreferrer" class="pub-btn">View on CommuterLit &rarr;</a>
-        </div>
-
-        <!-- FanStory Features -->
-        <div class="pub-card">
-          <span class="pub-tag">Workshop & Prize Placement</span>
-          <h3 class="pub-name">FanStory Showcase</h3>
-          <p class="pub-details">Selected works, peer-voted recognition, and contest entries including liturgical prayers and seasonal thriller workshops developed across the author forum.</p>
-          <a href="https://www.fanstory.com" target="_blank" rel="noopener noreferrer" class="pub-btn">Visit FanStory Folio &rarr;</a>
-        </div>
-
-        <!-- Anthology Projects -->
-        <div class="pub-card">
-          <span class="pub-tag">Fairy Tale Anthologies</span>
-          <h3 class="pub-name">Dark Helix / Literary Calls</h3>
-          <p class="pub-details">Curated submissions including <em>"How Gingy Got Ginger-Snapped!"</em> and subversive adaptations rooted in Southern courtroom satire and dark fable traditions.</p>
-          <a href="#works" class="pub-btn">Explore Adaptations &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Works Grid -->
     <div class="container">
       <div class="filter-wrapper" id="works">
         <button class="filter-btn active" data-filter="all">All Folios</button>
@@ -845,30 +589,33 @@
       </div>
 
       <div class="works-grid">
+        <!-- Work 1 -->
         <article class="work-card" data-category="prose">
           <div class="card-body">
             <span class="card-genre">Short Fiction / Thriller</span>
             <h3 class="card-title">The Cut-Off at Exit 53</h3>
             <p class="card-meta">CommuterLit Feature Selection</p>
-            <p class="card-desc">A late-night turn onto an unmapped bypass traps a driver between highway sleet and a bridge that refuses to stay put.</p>
+            <p class="card-desc">A late-night turn onto an unmapped Alabama bypass traps a weary driver between blinding highway sleet and a bridge that refuses to stay put.</p>
             <div class="card-action">
               <span class="card-link" onclick="openReader('cutoff')">Read Excerpt &rarr;</span>
             </div>
           </div>
         </article>
 
+        <!-- Work 2 -->
         <article class="work-card" data-category="prose">
           <div class="card-body">
             <span class="card-genre">Subversive Fairy Tale</span>
             <h3 class="card-title">How Gingy Got Ginger-Snapped!</h3>
             <p class="card-meta">Dark Helix Anthology Candidate</p>
-            <p class="card-desc">Baked out of pure spite, coal-ash, and fermented cider. A spiteful confection wages guerilla warfare against gingerbread civility.</p>
+            <p class="card-desc">Baked out of pure spite, fireplace coal-ash, and fermented cider. A spiteful confection wages guerilla warfare against gingerbread civility.</p>
             <div class="card-action">
               <span class="card-link" onclick="openReader('gingy')">Read Excerpt &rarr;</span>
             </div>
           </div>
         </article>
 
+        <!-- Work 3 -->
         <article class="work-card" data-category="poetry">
           <div class="card-body">
             <span class="card-genre">Liturgical Petition / Verse</span>
@@ -881,11 +628,12 @@
           </div>
         </article>
 
+        <!-- Work 4 -->
         <article class="work-card" data-category="audio">
           <div class="card-body">
             <span class="card-genre">Acoustic & Spoken Sound</span>
             <h3 class="card-title">Midnight in Montgomery</h3>
-            <p class="card-meta">Produced by The Fable Spinner</p>
+            <p class="card-meta">Recorded by Vickery &amp; The Fable Spinners</p>
             <p class="card-desc">Atmospheric strings, sparse vinyl crackle, and narrative cadence exploring lineage, asphalt memories, and Southern crossroads.</p>
             <div class="card-action">
               <a href="#sound" class="card-link">Load to Player &rarr;</a>
@@ -894,55 +642,17 @@
         </article>
       </div>
 
-      <!-- Educational / Pedagogy Section -->
-      <section class="edu-section" id="education">
-        <div class="section-title-wrap">
-          <h2 class="section-title">Academic & Educational Folios</h2>
-          <p class="section-sub">Higher education curricula, rhetoric workshops, and institutional leadership</p>
-        </div>
-
-        <div class="edu-grid">
-          <div class="edu-item">
-            <span class="edu-badge">Institutional Innovation</span>
-            <h4 class="edu-title">Student Retention & Academic Success</h4>
-            <p class="edu-desc">Architecture and programming designed for campus support centers, retention tracking, and targeted developmental interventions for diverse student cohorts.</p>
-            <a href="https://today.troy.edu/news/troy-cuts-ribbon-on-new-center-for-student-success-at-montgomery-campus/" target="_blank" rel="noopener noreferrer" class="pub-btn">View Troy Dedication &rarr;</a>
-          </div>
-
-          <div class="edu-item">
-            <span class="edu-badge">Course Module</span>
-            <h4 class="edu-title">Advanced Technical & Rhetorical Writing</h4>
-            <p class="edu-desc">Syllabi, prompt designs, and industry case studies preparing students for workplace communication, ethical analysis, and documentation.</p>
-            <a href="#dossier" class="pub-btn">Inquire for Materials &rarr;</a>
-          </div>
-
-          <div class="edu-item">
-            <span class="edu-badge">Classroom Framework</span>
-            <h4 class="edu-title">Gamified Courtroom Simulations</h4>
-            <p class="edu-desc">Pedagogical modules integrating case-brief rhetoric, pop-culture mock trials, and narrative dialectics to build critical argumentation skills.</p>
-            <a href="#dossier" class="pub-btn">Download Guide &rarr;</a>
-          </div>
-
-          <div class="edu-item">
-            <span class="edu-badge">Archival Research</span>
-            <h4 class="edu-title">Periodical & Story Paper Archives</h4>
-            <p class="edu-desc">Critical recovery projects examining late 19th-century publications (including <em>Vickery's Fireside Visitor</em>) and Gulf Coast print culture.</p>
-            <a href="#dossier" class="pub-btn">View Archival Notes &rarr;</a>
-          </div>
-        </div>
-      </section>
-
       <!-- Audio Section -->
       <section class="audio-hub" id="sound">
-        <div class="section-title-wrap">
-          <h2 class="section-title">The Listening Station</h2>
-          <p class="section-sub">Original Soundscapes & Releases by The Fable Spinner</p>
+        <div class="audio-header">
+          <h2>The Listening Station</h2>
+          <p>Soundscapes & Releases by Vickery &amp; The Fable Spinners</p>
         </div>
         <div class="player-container">
           <div class="player-top">
             <div class="track-info">
               <h3 id="current-track-title">Midnight in Montgomery</h3>
-              <p id="current-track-artist">The Fable Spinner &bull; Audio Dispatch</p>
+              <p id="current-track-artist">Vickery &amp; The Fable Spinners &bull; Audio Dispatch</p>
             </div>
             <div style="color: var(--text-muted); font-size: 0.85rem;" id="player-status">Ready to Stream</div>
           </div>
@@ -955,20 +665,22 @@
         </div>
       </section>
 
-      <!-- Dossier / Bio -->
+      <!-- Dossier / Bio Section with Author Image -->
       <section class="bio-section" id="dossier">
         <div class="bio-grid">
           <div class="bio-photo-card">
-            <div class="bio-photo-placeholder">
-              <span>Robert Vickery II</span>
-              <small style="margin-top: 0.5rem; font-size: 0.75rem;">Author &bull; Professor &bull; Producer</small>
+            <!-- Author image saved in same directory as BIOO.jpg -->
+            <img src="BIOO.jpg" alt="Robert Vickery seated in private book archive" class="bio-img" onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
+            <div id="photo-fallback" style="display:none; height:440px; align-items:center; justify-content:center; flex-direction:column; background:#090a0d; color:var(--orange-accent); font-family:var(--font-display);">
+              <span>Robert Vickery</span>
+              <small style="color:var(--text-muted); margin-top:0.5rem;">Author &bull; Scholar &bull; Producer</small>
             </div>
           </div>
           <div class="bio-text">
-            <h2>The Dossier</h2>
-            <p>Robert Vickery II is a writer, higher education professor, and recording artist rooted on the Gulf Coast. His creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
-            <p>Under the musical banner of <strong>The Fable Spinner</strong>, his audio productions weave together narrative verse, Southern rhythm, and minimalist instrumentation.</p>
-            <p>Whether examining archival period literature, coordinating student success initiatives, or drafting high-tension fiction, his work tallies the friction between endurance, place, and hard-earned grace.</p>
+            <h2>The <span>Dossier</span></h2>
+            <p>Robert Vickery is a writer, higher education faculty member, and recording artist rooted on the Gulf Coast. His creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
+            <p>Under the musical project <strong>Vickery &amp; The Fable Spinners</strong>, his audio productions weave together narrative verse, acoustic arrangements, and minimalist instrumentation.</p>
+            <p>Whether examining archival period literature or drafting high-tension fiction, his work tallies the friction between endurance, place, and hard-earned grace.</p>
           </div>
         </div>
       </section>
@@ -979,12 +691,8 @@
   <div class="modal-overlay" id="reader-modal" onclick="closeReader(event)">
     <div class="modal-reader" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <h3 id="modal-title" style="font-family: var(--font-display); color: var(--gold-accent);">Title</h3>
-        <div class="modal-controls">
-          <button class="theme-toggle-btn" onclick="setReaderTheme('dark')">Dark</button>
-          <button class="theme-toggle-btn" onclick="setReaderTheme('sepia')">Sepia</button>
-          <button class="modal-close" onclick="closeReaderModal()">&times;</button>
-        </div>
+        <h3 id="modal-title" style="font-family: var(--font-display); color: var(--orange-accent);">Title</h3>
+        <button class="modal-close" onclick="closeReaderModal()">&times;</button>
       </div>
       <div class="modal-content" id="modal-text"></div>
     </div>
@@ -992,12 +700,12 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Robert Vickery II &bull; Vickery Creative. All rights reserved.</p>
+      <p>&copy; 2026 Robert Vickery &bull; Vickery Creative. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Filtering logic
+    // Category Filtering
     const filterButtons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.work-card');
 
@@ -1017,7 +725,7 @@
       });
     });
 
-    // Modal Content
+    // Excerpt Database
     const excerpts = {
       cutoff: `<h4>The Cut-Off at Exit 53</h4><br><p>The wipers on the sedan had given up on clearing the glass twenty miles south of Evergreen. They merely dragged a greasy gray film of sleet back and forth across the windshield, turning the taillights of long-haul semis into bleeding smears of crimson.</p><br><p>Exit 53 did not appear on the paper county foldout crumpled on the passenger seat, but the metal sign rose out of the swamp pines like a jagged tooth: oxidized green, pitted with rust around the mounting bolts, pointing hard into the dark.</p>`,
       gingy: `<h4>How Gingy Got Ginger-Snapped!</h4><br><p>The witch did not use standard baker’s molasses. She used blackstrap dregs boiled down in an iron washpot, and instead of ginger root, she ground up dried dandelion taproots and horse-radish cured in chimney soot.</p><br><p>When the oven latch gave way, there was no cheerful piping of icing or peppermint cheer. He stood on the cookie sheet smelling like bitter vinegar and wet coal, his currant eyes hardened into cold flint.</p>`,
@@ -1042,13 +750,7 @@
       if (e.target.id === 'reader-modal') closeReaderModal();
     }
 
-    function setReaderTheme(theme) {
-      const content = document.getElementById('modal-text');
-      content.classList.remove('theme-sepia');
-      if (theme === 'sepia') content.classList.add('theme-sepia');
-    }
-
-    // Audio Visualizer
+    // Canvas Audio Visualizer
     const vCanvas = document.getElementById('visualizer-canvas');
     const vCtx = vCanvas.getContext('2d');
     let isPlaying = false;
@@ -1069,7 +771,7 @@
         let barHeight = isPlaying 
           ? Math.sin(Date.now() * 0.005 + i * 0.3) * 20 + Math.random() * 25 + 10
           : 4;
-        vCtx.fillStyle = isPlaying ? '#d4af37' : '#334155';
+        vCtx.fillStyle = isPlaying ? '#ff7a00' : '#27272a';
         vCtx.fillRect(i * (barWidth + 2), (vCanvas.height - barHeight) / 2, barWidth, barHeight);
       }
       requestAnimationFrame(drawVisualizer);
@@ -1083,7 +785,7 @@
       if (isPlaying) {
         btn.innerHTML = '&#10074;&#10074;';
         status.innerText = 'Now Playing';
-        status.style.color = 'var(--gold-accent)';
+        status.style.color = 'var(--orange-accent)';
       } else {
         btn.innerHTML = '&#9658;';
         status.innerText = 'Paused';
@@ -1093,10 +795,12 @@
 
     function prevTrack() {
       document.getElementById('current-track-title').innerText = "The Sandman (Acoustic)";
+      document.getElementById('current-track-artist').innerText = "Vickery & The Fable Spinners \u2022 Audio Dispatch";
     }
 
     function nextTrack() {
       document.getElementById('current-track-title').innerText = "Broken Into Purpose";
+      document.getElementById('current-track-artist').innerText = "Vickery & The Fable Spinners \u2022 Audio Dispatch";
     }
   </script>
 </body>
