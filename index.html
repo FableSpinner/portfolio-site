@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robert Vickery | Author, Folklorist & Musician</title>
-  <meta name="description" content="Official creative portfolio of Robert Vickery and Vickery Creative. Southern Gothic fiction, verse, folklore recovery, and audio by Vickery & The Fable Spinners.">
+  <title>Robert Vickery | Vickerian Creative Archive</title>
+  <meta name="description" content="Official creative portfolio of Robert Vickery and Vickerian Creative. Southern Gothic fiction, verse, institutional initiatives, and audio by Vickery & The Fable Spinners.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -91,9 +91,19 @@
       color: var(--orange-accent);
     }
 
+    .brand-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-left: 0.5rem;
+      border-left: 1px solid var(--border-subtle);
+      padding-left: 0.5rem;
+      text-transform: uppercase;
+    }
+
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
     }
 
@@ -148,7 +158,7 @@
       font-size: clamp(1.2rem, 2vw, 1.45rem);
       font-style: italic;
       color: var(--text-muted);
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto 2.5rem;
     }
 
@@ -197,12 +207,102 @@
       transform: translateY(-2px);
     }
 
+    /* Section Titles */
+    .section-head {
+      text-align: center;
+      margin: 4.5rem 0 2.5rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-head h2 span {
+      color: var(--orange-accent);
+    }
+
+    .section-head p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+    }
+
+    /* Featured Coverage Grid */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 4rem;
+    }
+
+    .featured-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .featured-card:hover {
+      border-color: var(--orange-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 15px var(--orange-glow);
+    }
+
+    .feat-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--orange-accent);
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .feat-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+
+    .feat-desc {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    .feat-link {
+      color: var(--orange-accent);
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feat-link:hover {
+      text-decoration: underline;
+    }
+
     /* Filter Controls */
     .filter-wrapper {
       display: flex;
       justify-content: center;
       gap: 0.75rem;
-      margin: 4rem 0 2.5rem;
+      margin: 2rem 0 2.5rem;
       flex-wrap: wrap;
     }
 
@@ -482,7 +582,7 @@
       color: #e5e7eb;
     }
 
-    /* Bio & Dossier with Author Image */
+    /* Bio & Dossier */
     .bio-section {
       padding: 5rem 0;
       border-top: 1px solid var(--border-subtle);
@@ -506,7 +606,7 @@
 
     .bio-img {
       width: 100%;
-      height: 440px;
+      height: 460px;
       object-fit: cover;
       object-position: center top;
       border-radius: 4px;
@@ -541,12 +641,12 @@
       font-size: 0.85rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       .bio-grid {
         grid-template-columns: 1fr;
       }
       .bio-img {
-        height: 360px;
+        height: 380px;
       }
       .nav-links {
         display: none;
@@ -560,8 +660,12 @@
 
   <header>
     <div class="container nav-wrapper">
-      <a href="#" class="brand-logo">Robert <span>Vickery</span></a>
+      <a href="#" class="brand-logo">
+        Robert <span>Vickery</span>
+        <span class="brand-sub">Vickerian</span>
+      </a>
       <ul class="nav-links">
+        <li><a href="#featured">Featured</a></li>
         <li><a href="#works">Works</a></li>
         <li><a href="#sound">Sound</a></li>
         <li><a href="#dossier">Dossier</a></li>
@@ -571,16 +675,92 @@
 
   <main>
     <section class="hero container">
-      <div class="hero-badge">Vickery Creative &bull; Music by Vickery &amp; The Fable Spinners</div>
+      <div class="hero-badge">Vickerian &bull; Music by Vickery &amp; The Fable Spinners</div>
       <h1 class="hero-title">Words on the Wire.<br><span>Songs in the Dark.</span></h1>
-      <p class="hero-sub">Prose fiction, Southern Gothic folklore, liturgical petitions, and narrative acoustics recorded by Vickery &amp; The Fable Spinners.</p>
+      <p class="hero-sub">Prose fiction, Southern Gothic folklore, community food sovereignty initiatives, and acoustic narratives curated under the Vickerian imprint.</p>
       <div class="hero-actions">
-        <a href="#works" class="btn btn-orange">Explore the Archive</a>
-        <a href="#sound" class="btn btn-outline">Listen to Soundscapes</a>
+        <a href="#featured" class="btn btn-orange">Featured Coverage</a>
+        <a href="#works" class="btn btn-outline">Creative Archive</a>
       </div>
     </section>
 
+    <!-- Featured News & Institutional Section -->
+    <section class="container" id="featured">
+      <div class="section-head">
+        <h2>Featured <span>Headlines</span> &amp; Impact</h2>
+        <p>Institutional milestones, student advocacy, and regional press features</p>
+      </div>
+
+      <div class="featured-grid">
+        <!-- Troy Ribbon Cutting -->
+        <article class="featured-card">
+          <div>
+            <span class="feat-tag">Campus Dedication &bull; Troy Today</span>
+            <h3 class="feat-title">TROY Cuts Ribbon on New Center for Student Success</h3>
+            <p class="feat-desc">Coverage commemorating the dedication of the Center for Student Success at the Montgomery Campus, highlighting comprehensive student retention initiatives and access expansion.</p>
+          </div>
+          <a href="https://today.troy.edu/news/troy-cuts-ribbon-on-new-center-for-student-success-at-montgomery-campus/" target="_blank" rel="noopener noreferrer" class="feat-link">
+            Read Troy Feature &rarr;
+          </a>
+        </article>
+
+        <!-- Bishop State Official News -->
+        <article class="featured-card">
+          <div>
+            <span class="feat-tag">Institutional News &bull; Bishop State</span>
+            <h3 class="feat-title">103 Corner Store: 3,000 Food Assistance Services</h3>
+            <p class="feat-desc">Bishop State official release documenting the rapid scaling and community impact of the campus basic-needs relief and grocery distribution network.</p>
+          </div>
+          <a href="https://www.bishop.edu/news/103-corner-store-student-led-effort-delivers-3-000-food-assistance-services-in-three-months" target="_blank" rel="noopener noreferrer" class="feat-link">
+            Read Campus Coverage &rarr;
+          </a>
+        </article>
+
+        <!-- AL.com Feature -->
+        <article class="featured-card">
+          <div>
+            <span class="feat-tag">Statewide Press &bull; AL.com</span>
+            <h3 class="feat-title">Students Hit Campus Hunger Head-On With Free Corner Store</h3>
+            <p class="feat-desc">Statewide news feature reporting on the innovative grocery model and collaborative volunteer logistics transforming collegiate hunger relief.</p>
+          </div>
+          <a href="https://www.al.com/life/2026/07/students-hit-campus-hunger-head-on-with-innovative-free-corner-store.html" target="_blank" rel="noopener noreferrer" class="feat-link">
+            Read AL.com Story &rarr;
+          </a>
+        </article>
+
+        <!-- This Is Alabama Spotlight -->
+        <article class="featured-card">
+          <div>
+            <span class="feat-tag">Community Spotlight &bull; This Is Alabama</span>
+            <h3 class="feat-title">Phi Theta Kappa: Transforming Campus Basic Needs</h3>
+            <p class="feat-desc">Regional feature spotlighting the Alpha Epsilon Nu PTK chapter at Bishop State leading the drive to combat food insecurity with institutional dignity.</p>
+          </div>
+          <a href="https://www.facebook.com/AMGThisIsAlabama/photos/when-the-members-of-a-phi-theta-kappa-honor-society-chapter-at-bishop-state-comm/1071566801875524/" target="_blank" rel="noopener noreferrer" class="feat-link">
+            View Feature &rarr;
+          </a>
+        </article>
+
+        <!-- Love All Pantry Support -->
+        <article class="featured-card">
+          <div>
+            <span class="feat-tag">Community Coalition &bull; Love All Pantry</span>
+            <h3 class="feat-title">Pantry Logistics &amp; Student Coalition Support</h3>
+            <p class="feat-desc">Partner spotlight highlighting logistical support, retail grocery rescue partnerships, and collaborative distribution networks serving students.</p>
+          </div>
+          <a href="https://www.facebook.com/loveallpantry/posts/did-you-know-love-all-pantry-at-central-support-the-students-of-bishop-state-com/932237245794978/" target="_blank" rel="noopener noreferrer" class="feat-link">
+            View Partner Dispatch &rarr;
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Works Archive -->
     <div class="container">
+      <div class="section-head" style="margin-top: 1rem;">
+        <h2>The <span>Creative</span> Folios</h2>
+        <p>Short fiction, subversive folklore, and epistolary verse</p>
+      </div>
+
       <div class="filter-wrapper" id="works">
         <button class="filter-btn active" data-filter="all">All Folios</button>
         <button class="filter-btn" data-filter="prose">Fiction & Lore</button>
@@ -665,22 +845,21 @@
         </div>
       </section>
 
-      <!-- Dossier / Bio Section with Author Image -->
+      <!-- Dossier / Bio Section with Image -->
       <section class="bio-section" id="dossier">
         <div class="bio-grid">
           <div class="bio-photo-card">
-            <!-- Author image saved in same directory as BIOO.jpg -->
             <img src="BIOO.jpg" alt="Robert Vickery seated in private book archive" class="bio-img" onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
-            <div id="photo-fallback" style="display:none; height:440px; align-items:center; justify-content:center; flex-direction:column; background:#090a0d; color:var(--orange-accent); font-family:var(--font-display);">
+            <div id="photo-fallback" style="display:none; height:460px; align-items:center; justify-content:center; flex-direction:column; background:#090a0d; color:var(--orange-accent); font-family:var(--font-display);">
               <span>Robert Vickery</span>
-              <small style="color:var(--text-muted); margin-top:0.5rem;">Author &bull; Scholar &bull; Producer</small>
+              <small style="color:var(--text-muted); margin-top:0.5rem;">Vickerian &bull; Author &bull; Educator</small>
             </div>
           </div>
           <div class="bio-text">
             <h2>The <span>Dossier</span></h2>
-            <p>Robert Vickery is a writer, higher education faculty member, and recording artist rooted on the Gulf Coast. His creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
-            <p>Under the musical project <strong>Vickery &amp; The Fable Spinners</strong>, his audio productions weave together narrative verse, acoustic arrangements, and minimalist instrumentation.</p>
-            <p>Whether examining archival period literature or drafting high-tension fiction, his work tallies the friction between endurance, place, and hard-earned grace.</p>
+            <p>Robert Vickery is a writer, educator, and recording artist rooted on the Gulf Coast. Housing his projects under the <strong>Vickerian</strong> imprint, his creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
+            <p>Beyond the page, his work bridges higher education leadership, campus food security initiatives, and community coalition building across Alabama and the Gulf Coast.</p>
+            <p>Under the musical banner of <strong>Vickery &amp; The Fable Spinners</strong>, his soundscapes merge spoken-word narrative, acoustic instrumentation, and minimalist arrangement.</p>
           </div>
         </div>
       </section>
@@ -700,7 +879,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Robert Vickery &bull; Vickery Creative. All rights reserved.</p>
+      <p>&copy; 2026 Robert Vickery &bull; Vickerian. All rights reserved.</p>
     </div>
   </footer>
 
@@ -750,7 +929,7 @@
       if (e.target.id === 'reader-modal') closeReaderModal();
     }
 
-    // Canvas Audio Visualizer
+    // Audio Visualizer
     const vCanvas = document.getElementById('visualizer-canvas');
     const vCtx = vCanvas.getContext('2d');
     let isPlaying = false;
