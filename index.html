@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robert Vickery II | Vickerian Creative Archive</title>
-  <meta name="description" content="Official creative portfolio of Robert Vickery II. Southern Gothic fiction, featured writings, academic research, songwriting, and institutional initiatives.">
+  <meta name="description" content="Official creative portfolio of Robert Vickery II. Southern Gothic fiction, featured writings, academic research, and institutional initiatives.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -432,6 +432,56 @@
       text-decoration: underline;
     }
 
+    /* Featured Writings Showcase */
+    .writings-spotlight {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      margin: 5rem 0;
+    }
+
+    .writings-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .writings-table th {
+      text-align: left;
+      padding: 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--orange-accent);
+      border-bottom: 1px solid var(--border-active);
+    }
+
+    .writings-table td {
+      padding: 1.25rem 1rem;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: middle;
+    }
+
+    .writings-table tr:hover td {
+      background: rgba(255, 122, 0, 0.03);
+    }
+
+    .writing-title-link {
+      color: #ffffff;
+      font-family: var(--font-display);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .writing-title-link:hover {
+      color: var(--orange-accent);
+    }
+
     /* Works Filter & Grid */
     .filter-wrapper {
       display: flex;
@@ -544,118 +594,6 @@
 
     .card-link:hover {
       text-decoration: underline;
-    }
-
-    /* Featured Writings Showcase */
-    .writings-spotlight {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 3rem 2rem;
-      margin: 5rem 0;
-    }
-
-    .writings-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-
-    .writings-table th {
-      text-align: left;
-      padding: 1rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--orange-accent);
-      border-bottom: 1px solid var(--border-active);
-    }
-
-    .writings-table td {
-      padding: 1.25rem 1rem;
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      vertical-align: middle;
-    }
-
-    .writings-table tr:hover td {
-      background: rgba(255, 122, 0, 0.03);
-    }
-
-    .writing-title-link {
-      color: #ffffff;
-      font-family: var(--font-display);
-      text-decoration: none;
-      font-size: 1.1rem;
-      display: block;
-      transition: color 0.2s;
-    }
-
-    .writing-title-link:hover {
-      color: var(--orange-accent);
-    }
-
-    /* Songwriting & Acoustic Folios */
-    .songwriting-section {
-      margin: 5rem 0;
-    }
-
-    .songwriting-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .song-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-    }
-
-    .song-card:hover {
-      border-color: var(--orange-accent);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 18px var(--orange-glow);
-    }
-
-    .song-badge {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--orange-accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .song-title {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      color: #ffffff;
-      margin-bottom: 0.75rem;
-    }
-
-    .song-lyrics-sample {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: #d1d5db;
-      background: rgba(0, 0, 0, 0.4);
-      border-left: 2px solid var(--orange-accent);
-      padding: 0.85rem 1.25rem;
-      margin: 1rem 0;
-      line-height: 1.6;
-    }
-
-    .song-notes {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
     }
 
     /* Bio & Dossier */
@@ -813,7 +751,6 @@
       <ul class="nav-links">
         <li><a href="#featured">Headlines</a></li>
         <li><a href="#writings">Featured Writings</a></li>
-        <li><a href="#songwriting">Songwriting</a></li>
         <li><a href="#works">Folios</a></li>
         <li><a href="#dossier">Dossier</a></li>
       </ul>
@@ -838,7 +775,7 @@
         <p class="hero-sub">Southern Gothic fiction, liturgical petitions, lyrical narratives, and community initiatives curated under the Vickerian imprint by Robert Vickery II.</p>
         <div class="hero-actions">
           <a href="#writings" class="btn btn-orange">Featured Writings</a>
-          <a href="#songwriting" class="btn btn-outline">Songwriting &amp; Verse</a>
+          <a href="#works" class="btn btn-outline">Creative Folios</a>
         </div>
       </div>
     </section>
@@ -847,10 +784,22 @@
     <section class="container" id="featured">
       <div class="section-head">
         <h2>Featured <span>Headlines</span> &amp; Impact</h2>
-        <p>Institutional milestones, academic archives, student advocacy, and regional press features</p>
+        <p>Institutional milestones, academic archives, student advocacy, and national journal publications</p>
       </div>
 
       <div class="featured-grid">
+        <!-- PTK Change Makers Journal -->
+        <article class="featured-card">
+          <div>
+            <span class="feat-tag">National Journal &bull; Phi Theta Kappa Honor Society</span>
+            <h3 class="feat-title">Editor / Published Article: Change Makers (6th Edition)</h3>
+            <p class="feat-desc">Featured publication and editorial contribution in Phi Theta Kappa's national <em>Change Makers</em> journal, chronicling evidence-based community college leadership, basic needs intervention, and transformative service learning.</p>
+          </div>
+          <a href="https://issuu.com/ptkstrategicplan/docs/change_makers_6th_edition" target="_blank" rel="noopener noreferrer" class="feat-link">
+            Read Journal Issue &rarr;
+          </a>
+        </article>
+
         <!-- AUM Digital Archives Thesis -->
         <article class="featured-card">
           <div>
@@ -992,67 +941,6 @@
       </div>
     </section>
 
-    <!-- Songwriting & Acoustic Folios Section -->
-    <section class="container songwriting-section" id="songwriting">
-      <div class="section-head">
-        <h2>Songwriting &amp; <span>Acoustic Litanies</span></h2>
-        <p>Original lyrics, narrative arrangements, and songcraft by Vickery &amp; The Fable Spinners</p>
-      </div>
-
-      <div class="songwriting-grid">
-        <!-- Song 1 -->
-        <article class="song-card">
-          <div>
-            <span class="song-badge">Acoustic Narrative &bull; Lead Track</span>
-            <h3 class="song-title">Midnight in Montgomery</h3>
-            <div class="song-lyrics-sample">
-              "The headlights catch the cypress knees where the asphalt gives up clean,<br>
-              A pocket full of silver coin and memories in between...<br>
-              We don't ask what the river kept; we only count the cost."
-            </div>
-            <p class="song-notes">Acoustic fingerpicking, delta slide, and conversational Southern lyricism confronting historical memory and personal inheritance.</p>
-          </div>
-          <div class="card-action">
-            <span class="card-link" onclick="openReader('song_midnight')">View Lyric Folio &rarr;</span>
-          </div>
-        </article>
-
-        <!-- Song 2 -->
-        <article class="song-card">
-          <div>
-            <span class="song-badge">Southern Hymnal &bull; Acoustic</span>
-            <h3 class="song-title">The Sandman</h3>
-            <div class="song-lyrics-sample">
-              "Sleep don't settle easy when the pine sap starts to bleed,<br>
-              You trade your waking daylight for another mouth to feed...<br>
-              Rest is just a rumor that the timber forgot to keep."
-            </div>
-            <p class="song-notes">A somber, rhythm-driven folk ballad tracking nocturnal labor, Gulf Coast humidity, and the physical weight of wakefulness.</p>
-          </div>
-          <div class="card-action">
-            <span class="card-link" onclick="openReader('song_sandman')">View Lyric Folio &rarr;</span>
-          </div>
-        </article>
-
-        <!-- Song 3 -->
-        <article class="song-card">
-          <div>
-            <span class="song-badge">Spoken Word &bull; Sparse Strings</span>
-            <h3 class="song-title">Broken Into Purpose</h3>
-            <div class="song-lyrics-sample">
-              "You cannot temper iron till it passes through the coals,<br>
-              The fractures in the timber show the grain beneath the whole...<br>
-              What broke you didn't finish you; it gave your hands a shape."
-            </div>
-            <p class="song-notes">Narrative verse arrangement examining endurance, resilience, and vocational renewal through Southern minimalist instrumentation.</p>
-          </div>
-          <div class="card-action">
-            <span class="card-link" onclick="openReader('song_purpose')">View Lyric Folio &rarr;</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <!-- Creative Folios Grid -->
     <div class="container">
       <div class="section-head" style="margin-top: 2rem;">
@@ -1062,8 +950,8 @@
 
       <div class="filter-wrapper" id="works">
         <button class="filter-btn active" data-filter="all">All Folios</button>
-        <button class="filter-btn" data-filter="prose">Fiction & Lore</button>
-        <button class="filter-btn" data-filter="poetry">Poetry & Petitions</button>
+        <button class="filter-btn" data-filter="prose">Fiction &amp; Lore</button>
+        <button class="filter-btn" data-filter="poetry">Poetry &amp; Petitions</button>
         <button class="filter-btn" data-filter="songwriting">Songwriting</button>
       </div>
 
@@ -1115,6 +1003,30 @@
             </div>
           </div>
         </article>
+
+        <article class="work-card" data-category="songwriting">
+          <div class="card-body">
+            <span class="card-genre">Songwriting &amp; Verse</span>
+            <h3 class="card-title">The Sandman</h3>
+            <p class="card-meta">Vickery &amp; The Fable Spinners</p>
+            <p class="card-desc">A somber, rhythm-driven folk ballad tracking nocturnal labor, Gulf Coast humidity, and the physical weight of wakefulness.</p>
+            <div class="card-action">
+              <span class="card-link" onclick="openReader('song_sandman')">View Lyrics &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card" data-category="songwriting">
+          <div class="card-body">
+            <span class="card-genre">Songwriting &amp; Verse</span>
+            <h3 class="card-title">Broken Into Purpose</h3>
+            <p class="card-meta">Vickery &amp; The Fable Spinners</p>
+            <p class="card-desc">Narrative verse arrangement examining endurance, resilience, and vocational renewal through Southern minimalist acoustic tradition.</p>
+            <div class="card-action">
+              <span class="card-link" onclick="openReader('song_purpose')">View Lyrics &rarr;</span>
+            </div>
+          </div>
+        </article>
       </div>
 
       <!-- Dossier / Bio Section with Hosted Bio Picture -->
@@ -1134,9 +1046,8 @@
           </div>
           <div class="bio-text">
             <h2>The <span>Dossier</span></h2>
-            <p>Robert Vickery II is a writer, educator, and songwriter rooted on the Gulf Coast. Housing his multidisciplinary projects under the <strong>Vickerian</strong> imprint, his creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
+            <p>Robert Vickery II is a writer, educator, and researcher rooted on the Gulf Coast. Housing his multidisciplinary work under the <strong>Vickerian</strong> imprint, his creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
             <p>Beyond the page, his work bridges higher education leadership, archival scholarship, campus food security initiatives, and community coalition building across Alabama and the Gulf Coast.</p>
-            <p>Under the songwriting project <strong>Vickery &amp; The Fable Spinners</strong>, his original lyricism and arrangements merge narrative verse, acoustic folk tradition, and minimal percussion.</p>
           </div>
         </div>
       </section>
