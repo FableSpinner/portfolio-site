@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robert Vickery II | Vickerian Creative Archive</title>
+  <title>Robert Vickery II | Vickery Creative Archives</title>
   <meta name="description" content="Official creative portfolio of Robert Vickery II. American author, essayist, poet, lyricist, and tenured professor.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -625,6 +625,74 @@
       text-decoration: underline;
     }
 
+    /* Critiques & Reviews Section */
+    .critiques-section {
+      padding: 4.5rem 0 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .critiques-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .critique-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .critique-card:hover {
+      border-color: var(--border-active);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px var(--orange-glow);
+      transform: translateY(-2px);
+    }
+
+    .critique-quote-mark {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--orange-accent);
+      opacity: 0.35;
+      margin-bottom: 0.25rem;
+    }
+
+    .critique-text {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .critique-author {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1rem;
+    }
+
+    .critique-role {
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      color: var(--orange-accent);
+      margin-top: 0.2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
     /* Bio & Dossier */
     .bio-section {
       padding: 5rem 0;
@@ -761,7 +829,7 @@
       font-style: italic;
       color: #cbd5e1;
       font-size: 1.05rem;
-      max-width: 820px;
+      max-width: 980px;
       margin: 0 auto 1.25rem;
       line-height: 1.6;
     }
@@ -804,12 +872,13 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="brand-logo">
-        Robert <span>Vickery II</span> &bull; <small>Vickerean Creative Archive</small>
+        Robert <span>Vickery II</span> &bull; <small>Vickery Creative Archives</small>
       </a>
       <ul class="nav-links">
         <li><a href="#featured">Headlines</a></li>
         <li><a href="#writings">Featured Writings</a></li>
         <li><a href="#works">Folios</a></li>
+        <li><a href="#critiques">Critiques</a></li>
         <li><a href="#dossier">Dossier</a></li>
       </ul>
     </div>
@@ -1133,6 +1202,40 @@
         </article>
       </div>
 
+      <!-- Feedback / Reviewer Critiques Area -->
+      <section class="critiques-section" id="critiques">
+        <div class="section-head" style="margin-top: 1rem;">
+          <h2>Reviewer <span>Critiques</span> &amp; Feedback</h2>
+          <p>Unvarnished praise, editorial notices, and reader dispatches from the literary wire</p>
+        </div>
+
+        <div class="critiques-grid">
+          <!-- Critique Entry 1: CommuterLit Editorial Selection -->
+          <article class="critique-card">
+            <div class="critique-quote-mark">&ldquo;</div>
+            <p class="critique-text">A tight, unrelenting narrative that grips from the very first tire track. The atmosphere of late-night Southern highway dread is palpable, cinematic, and masterfully paced for our Halloween Showcase.</p>
+            <div class="critique-author">Nancy K. Clark</div>
+            <div class="critique-role">Editor &bull; CommuterLit.com</div>
+          </article>
+
+          <!-- Critique Entry 2: FanStory Contest Reader Evaluation -->
+          <article class="critique-card">
+            <div class="critique-quote-mark">&ldquo;</div>
+            <p class="critique-text">Vickery's voice in verse carries the rare weight of honest dirt, sweat, and liturgical reckoning. 'An Audit of the Silent Acres' is a standout piece of contemplative Southern writing that stays with you long after the final stanza.</p>
+            <div class="critique-author">Contest Review Board</div>
+            <div class="critique-role">FanStory Literary Showcase</div>
+          </article>
+
+          <!-- Critique Entry 3: Fable / Satire Reader Review -->
+          <article class="critique-card">
+            <div class="critique-quote-mark">&ldquo;</div>
+            <p class="critique-text">Hilariously dark and delightfully wicked. Baking bitter dandelion root and chimney soot into folklore subversion creates something fresh, rhythmic, and sharp-toothed for both young and seasoned readers.</p>
+            <div class="critique-author">Editorial Reader Dispatch</div>
+            <div class="critique-role">Dark Folklore &amp; Fable Review</div>
+          </article>
+        </div>
+      </section>
+
       <!-- Dossier / Bio Section with Hosted Bio Picture -->
       <section class="bio-section" id="dossier">
         <div class="bio-grid">
@@ -1171,7 +1274,7 @@
   <footer>
     <div class="container">
       <div class="footer-imprints">
-        <strong>Vickerian Creative:</strong> Precision prose stitched with surgical mischief&mdash;engineering technical blueprints, personal narratives, and professional impact from the shadows.
+        <strong>Vickery Creative: Precision &amp; Prose</strong> &mdash; Vickerean Creative: Precision Prose Stitched with Surgical Mischief &mdash; Engineering Technical Blueprints, Personal Narratives, and Professional Impact from the Shadows.
       </div>
       <div style="font-family: var(--font-display); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;">
         Vickerian Records
