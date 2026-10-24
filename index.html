@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robert Vickery II | Vickerian Creative Archive</title>
-  <meta name="description" content="Official creative portfolio of Robert Vickery II. Southern Gothic fiction, featured writings, academic research, and institutional initiatives.">
+  <meta name="description" content="Official creative portfolio of Robert Vickery II. American author, poet, lyricist, songwriter, and educator.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -596,6 +596,133 @@
       text-decoration: underline;
     }
 
+    /* Listening Station */
+    .listening-station {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      margin: 5rem 0;
+    }
+
+    .player-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .player-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .track-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .track-info p {
+      font-size: 0.85rem;
+      color: var(--orange-accent);
+    }
+
+    #visualizer-canvas {
+      width: 100%;
+      height: 70px;
+      background: #060709;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 122, 0, 0.15);
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .ctrl-btn {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .ctrl-btn.play-btn {
+      width: 56px;
+      height: 56px;
+      background: var(--orange-accent);
+      color: #050505;
+      border: none;
+    }
+
+    .ctrl-btn:hover {
+      border-color: var(--orange-accent);
+      color: var(--orange-accent);
+      transform: scale(1.05);
+    }
+
+    .ctrl-btn.play-btn:hover {
+      background: var(--orange-bright);
+      color: #050505;
+    }
+
+    /* Tracklist selection */
+    .station-tracklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .tracklist-item {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      padding: 0.85rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tracklist-item:hover, .tracklist-item.active {
+      border-color: var(--orange-accent);
+      background: rgba(255, 122, 0, 0.05);
+    }
+
+    .tracklist-item span {
+      font-size: 0.85rem;
+      color: #ffffff;
+      font-family: var(--font-display);
+    }
+
+    .tracklist-item small {
+      color: var(--orange-accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     /* Bio & Dossier */
     .bio-section {
       padding: 5rem 0;
@@ -717,6 +844,15 @@
       font-size: 0.85rem;
     }
 
+    .footer-imprints {
+      font-family: var(--font-display);
+      color: var(--orange-accent);
+      letter-spacing: 0.15em;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
     @media (max-width: 820px) {
       .bio-grid {
         grid-template-columns: 1fr;
@@ -752,6 +888,7 @@
         <li><a href="#featured">Headlines</a></li>
         <li><a href="#writings">Featured Writings</a></li>
         <li><a href="#works">Folios</a></li>
+        <li><a href="#station">Listening Station</a></li>
         <li><a href="#dossier">Dossier</a></li>
       </ul>
     </div>
@@ -775,7 +912,7 @@
         <p class="hero-sub">Southern Gothic fiction, liturgical petitions, lyrical narratives, and community initiatives curated under the Vickerian imprint by Robert Vickery II.</p>
         <div class="hero-actions">
           <a href="#writings" class="btn btn-orange">Featured Writings</a>
-          <a href="#works" class="btn btn-outline">Creative Folios</a>
+          <a href="#station" class="btn btn-outline">Listening Station</a>
         </div>
       </div>
     </section>
@@ -941,7 +1078,7 @@
       </div>
     </section>
 
-    <!-- Creative Folios Grid -->
+    <!-- Creative Folios Grid (with Songwriting as Last Tab) -->
     <div class="container">
       <div class="section-head" style="margin-top: 2rem;">
         <h2>The <span>Creative</span> Folios</h2>
@@ -999,7 +1136,7 @@
             <p class="card-meta">Vickery &amp; The Fable Spinners</p>
             <p class="card-desc">Atmospheric strings, sparse acoustic cadence, and narrative lyricism exploring lineage, asphalt memories, and Southern crossroads.</p>
             <div class="card-action">
-              <span class="card-link" onclick="openReader('song_midnight')">View Lyrics &rarr;</span>
+              <span class="card-link" onclick="loadSong(0)">Queue in Station &rarr;</span>
             </div>
           </div>
         </article>
@@ -1011,7 +1148,7 @@
             <p class="card-meta">Vickery &amp; The Fable Spinners</p>
             <p class="card-desc">A somber, rhythm-driven folk ballad tracking nocturnal labor, Gulf Coast humidity, and the physical weight of wakefulness.</p>
             <div class="card-action">
-              <span class="card-link" onclick="openReader('song_sandman')">View Lyrics &rarr;</span>
+              <span class="card-link" onclick="loadSong(1)">Queue in Station &rarr;</span>
             </div>
           </div>
         </article>
@@ -1023,11 +1160,48 @@
             <p class="card-meta">Vickery &amp; The Fable Spinners</p>
             <p class="card-desc">Narrative verse arrangement examining endurance, resilience, and vocational renewal through Southern minimalist acoustic tradition.</p>
             <div class="card-action">
-              <span class="card-link" onclick="openReader('song_purpose')">View Lyrics &rarr;</span>
+              <span class="card-link" onclick="loadSong(2)">Queue in Station &rarr;</span>
             </div>
           </div>
         </article>
       </div>
+
+      <!-- Listening Station of the Songs -->
+      <section class="listening-station" id="station">
+        <div class="section-head" style="margin: 0 0 1.5rem 0;">
+          <h2>The <span>Listening</span> Station</h2>
+          <p>Acoustic dispatches and sound recordings by Vickery &amp; The Fable Spinners</p>
+        </div>
+        <div class="player-container">
+          <div class="player-top">
+            <div class="track-info">
+              <h3 id="current-track-title">Midnight in Montgomery</h3>
+              <p id="current-track-artist">Vickery &amp; The Fable Spinners &bull; Audio Dispatch</p>
+            </div>
+            <div style="color: var(--text-muted); font-size: 0.85rem;" id="player-status">Ready to Stream</div>
+          </div>
+          <canvas id="visualizer-canvas"></canvas>
+          <div class="player-controls">
+            <button class="ctrl-btn" onclick="prevSong()" title="Previous Track">&#9664;&#9664;</button>
+            <button class="ctrl-btn play-btn" id="play-pause-btn" onclick="togglePlayback()" title="Play/Pause">&#9658;</button>
+            <button class="ctrl-btn" onclick="nextSong()" title="Next Track">&#9654;&#9654;</button>
+          </div>
+          <div class="station-tracklist">
+            <div class="tracklist-item active" id="track-item-0" onclick="loadSong(0)">
+              <span>Midnight in Montgomery</span>
+              <small>01</small>
+            </div>
+            <div class="tracklist-item" id="track-item-1" onclick="loadSong(1)">
+              <span>The Sandman</span>
+              <small>02</small>
+            </div>
+            <div class="tracklist-item" id="track-item-2" onclick="loadSong(2)">
+              <span>Broken Into Purpose</span>
+              <small>03</small>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Dossier / Bio Section with Hosted Bio Picture -->
       <section class="bio-section" id="dossier">
@@ -1046,8 +1220,9 @@
           </div>
           <div class="bio-text">
             <h2>The <span>Dossier</span></h2>
-            <p>Robert Vickery II is a writer, educator, and researcher rooted on the Gulf Coast. Housing his multidisciplinary work under the <strong>Vickerian</strong> imprint, his creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
+            <p>Robert Vickery is an American author, poet, lyricist, songwriter, and educator rooted on the Gulf Coast. Housing his multidisciplinary work under the <strong>Vickerian</strong> imprint, his creative prose navigates Southern Gothic realism, regional folklore recovery, and the psychological weight of isolation.</p>
             <p>Beyond the page, his work bridges higher education leadership, archival scholarship, campus food security initiatives, and community coalition building across Alabama and the Gulf Coast.</p>
+            <p>Under the songwriting project <strong>Vickery &amp; The Fable Spinners</strong>, his lyricism merges narrative verse, acoustic folk tradition, and minimal percussion.</p>
           </div>
         </div>
       </section>
@@ -1067,6 +1242,7 @@
 
   <footer>
     <div class="container">
+      <div class="footer-imprints">Vickery Creative &bull; Vickeryan Records</div>
       <p>&copy; 2026 Robert Vickery II &bull; Vickerian. All rights reserved.</p>
     </div>
   </footer>
@@ -1097,10 +1273,7 @@
       cutoff: `<h4>The Cut-Off at Exit 53</h4><br><p>The wipers on the sedan had given up on clearing the glass twenty miles south of Evergreen. They merely dragged a greasy gray film of sleet back and forth across the windshield, turning the taillights of long-haul semis into bleeding smears of crimson.</p><br><p>Exit 53 did not appear on the paper county foldout crumpled on the passenger seat, but the metal sign rose out of the swamp pines like a jagged tooth: oxidized green, pitted with rust around the mounting bolts, pointing hard into the dark.</p>`,
       gingy: `<h4>How Gingy Got Ginger-Snapped!</h4><br><p>The witch did not use standard baker’s molasses. She used blackstrap dregs boiled down in an iron washpot, and instead of ginger root, she ground up dried dandelion taproots and horse-radish cured in chimney soot.</p><br><p>When the oven latch gave way, there was no cheerful piping of icing or peppermint cheer. He stood on the cookie sheet smelling like bitter vinegar and wet coal, his currant eyes hardened into cold flint.</p>`,
       audit: `<h4>An Audit of the Silent Acres</h4><br><p>It’s 4:20 in the morning. The coffee sitting on this laminate is cold, and the pine trees outside the window haven't started shedding mist yet. The highway won’t wake up for another forty minutes, so right now it’s just me, the hum of the refrigerator coil, and a yellow legal pad that won't let the math work out.</p><br><p>Yesterday a young mother on my route was counting out nickels for formula while her disconnect notice sat on the dash. Last week a thirty-year mechanic sat on a folding chair waiting on a sack of dry rice, staring at his palms like they were dead meat.</p><br><p>Take this tally for what it is, Padre: a tired man in Your ditch, leaning hard on a dull hoe, waiting on sundown to bring an honest wage.</p>`,
-      wax: `<h4>The Wax and the Wire</h4><br><p>The recording needle gouged a single furrow into the revolving cylinder, throwing up a curl of dark beeswax like cedar shavings behind a block plane. In the parlor silence, the machine hummed with the mechanical pulse of early telegraph lines—retaining sound not as song, but as a permanent, fragile scar.</p>`,
-      song_midnight: `<h4>Midnight in Montgomery (Lyric Folio)</h4><br><p class="song-lyrics-sample">The headlights catch the cypress knees where the asphalt gives up clean,<br>A pocket full of silver coin and memories in between.<br>The red clay drinks the river dry before the morning fog can rise,<br>And every signpost on the road wears a deputy's disguise.<br><br>We don't ask what the river kept; we only count the cost,<br>Between the boy who left the town and the shadow that he lost.</p>`,
-      song_sandman: `<h4>The Sandman (Lyric Folio)</h4><br><p class="song-lyrics-sample">Sleep don't settle easy when the pine sap starts to bleed,<br>You trade your waking daylight for another mouth to feed.<br>The crickets take the graveyard shift, the rafters groan in time,<br>And every dollar earned at noon feels counterfeit by nine.<br><br>Rest is just a rumor that the timber forgot to keep,<br>When the marrow in your shoulders refuses to let you sleep.</p>`,
-      song_purpose: `<h4>Broken Into Purpose (Lyric Folio)</h4><br><p class="song-lyrics-sample">You cannot temper iron till it passes through the coals,<br>The fractures in the timber show the grain beneath the whole.<br>They told you that the silence was an empty, wasted space,<br>Until you learned to read the scars carved deep across your face.<br><br>What broke you didn't finish you; it gave your hands a shape,<br>To hold the plow against the ridge and measure your escape.</p>`
+      wax: `<h4>The Wax and the Wire</h4><br><p>The recording needle gouged a single furrow into the revolving cylinder, throwing up a curl of dark beeswax like cedar shavings behind a block plane. In the parlor silence, the machine hummed with the mechanical pulse of early telegraph lines—retaining sound not as song, but as a permanent, fragile scar.</p>`
     };
 
     function openReader(key) {
@@ -1109,7 +1282,7 @@
       const title = document.getElementById('modal-title');
       
       textContainer.innerHTML = excerpts[key] || '<p>Excerpt loading...</p>';
-      title.innerText = key.replace('song_', '').toUpperCase();
+      title.innerText = key.toUpperCase();
       modal.classList.add('active');
     }
 
@@ -1119,6 +1292,91 @@
 
     function closeReader(e) {
       if (e.target.id === 'reader-modal') closeReaderModal();
+    }
+
+    // Audio Visualizer & Listening Station Logic
+    const songs = [
+      { title: "Midnight in Montgomery", artist: "Vickery & The Fable Spinners • Audio Dispatch" },
+      { title: "The Sandman", artist: "Vickery & The Fable Spinners • Audio Dispatch" },
+      { title: "Broken Into Purpose", artist: "Vickery & The Fable Spinners • Audio Dispatch" }
+    ];
+
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+
+    function loadSong(index) {
+      currentTrackIndex = index;
+      document.getElementById('current-track-title').innerText = songs[currentTrackIndex].title;
+      document.getElementById('current-track-artist').innerText = songs[currentTrackIndex].artist;
+
+      for (let i = 0; i < songs.length; i++) {
+        const item = document.getElementById('track-item-' + i);
+        if (item) {
+          if (i === index) item.classList.add('active');
+          else item.classList.remove('active');
+        }
+      }
+
+      if (!isPlaying) togglePlayback();
+      const stationEl = document.getElementById('station');
+      if (stationEl) {
+        stationEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function nextSong() {
+      currentTrackIndex = (currentTrackIndex + 1) % songs.length;
+      loadSong(currentTrackIndex);
+    }
+
+    function prevSong() {
+      currentTrackIndex = (currentTrackIndex - 1 + songs.length) % songs.length;
+      loadSong(currentTrackIndex);
+    }
+
+    const vCanvas = document.getElementById('visualizer-canvas');
+    const vCtx = vCanvas.getContext('2d');
+
+    function resizeVCanvas() {
+      if (vCanvas) {
+        vCanvas.width = vCanvas.offsetWidth;
+        vCanvas.height = vCanvas.offsetHeight;
+      }
+    }
+    window.addEventListener('resize', resizeVCanvas);
+    resizeVCanvas();
+
+    function drawVisualizer() {
+      if (vCtx && vCanvas) {
+        vCtx.clearRect(0, 0, vCanvas.width, vCanvas.height);
+        const bars = 48;
+        const barWidth = (vCanvas.width / bars) - 2;
+
+        for (let i = 0; i < bars; i++) {
+          let barHeight = isPlaying 
+            ? Math.sin(Date.now() * 0.005 + i * 0.3) * 20 + Math.random() * 25 + 10
+            : 4;
+          vCtx.fillStyle = isPlaying ? '#ff7a00' : '#27272a';
+          vCtx.fillRect(i * (barWidth + 2), (vCanvas.height - barHeight) / 2, barWidth, barHeight);
+        }
+      }
+      requestAnimationFrame(drawVisualizer);
+    }
+    drawVisualizer();
+
+    function togglePlayback() {
+      isPlaying = !isPlaying;
+      const btn = document.getElementById('play-pause-btn');
+      const status = document.getElementById('player-status');
+      if (isPlaying) {
+        btn.innerHTML = '&#10074;&#10074;';
+        status.innerText = 'Now Playing';
+        status.style.color = 'var(--orange-accent)';
+      } else {
+        btn.innerHTML = '&#9658;';
+        status.innerText = 'Paused';
+        status.style.color = 'var(--text-muted)';
+      }
     }
   </script>
 </body>
