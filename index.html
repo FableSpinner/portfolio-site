@@ -291,7 +291,7 @@
       font-size: clamp(1.2rem, 2vw, 1.45rem);
       font-style: italic;
       color: var(--text-muted);
-      max-width: 760px;
+      max-width: 820px;
       margin: 0 auto 2.5rem;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     }
@@ -480,6 +480,25 @@
 
     .writing-title-link:hover {
       color: var(--orange-accent);
+    }
+
+    .table-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .action-sublink {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .action-sublink:hover {
+      color: #ffffff;
+      text-decoration: underline;
     }
 
     /* Works Filter & Grid */
@@ -791,7 +810,7 @@
       <div class="hero-content">
         <div class="hero-badge">Vickerian Creative &bull; A Creative Writing Wonderland</div>
         <h1 class="hero-title">Words on the Wire.<br><span>Thoughts in the Dark.</span></h1>
-        <p class="hero-sub">Southern Gothic fiction, liturgical petitions, lyrical narratives, and community initiatives curated under the Vickerian imprint by Robert Vickery II.</p>
+        <p class="hero-sub">Where Southern Gothic, dread, and shadowed folklore collide with archival history, fables, and communal witness, curated under the Vikarian imprint by Robert Vickery II.</p>
         <div class="hero-actions">
           <a href="#writings" class="btn btn-orange">Featured Writings</a>
           <a href="#works" class="btn btn-outline">Creative Folios</a>
@@ -803,7 +822,7 @@
     <section class="container" id="featured">
       <div class="section-head">
         <h2>Featured <span>Headlines</span> &amp; Impact</h2>
-        <p>Institutional milestones, academic archives, student advocacy, and national journal publications</p>
+        <p>Academic Scholarship, National Publications, Historical Archives, and Public Advocacy</p>
       </div>
 
       <div class="featured-grid">
@@ -910,61 +929,107 @@
       <div class="writings-spotlight">
         <div class="section-head" style="margin: 0 0 1.5rem 0;">
           <h2>Featured <span>Writings</span> &amp; Placements</h2>
-          <p>Curated short stories, epistolary prayers, and literary prize selections</p>
+          <p>Writings for Different Competitions and Themes &bull; Folk Horror and Noir, Psychological Horror, and Gothic Suspense</p>
         </div>
 
         <table class="writings-table">
           <thead>
             <tr>
               <th>Title / Project</th>
-              <th>Genre / Placement</th>
-              <th>Status / Outlet</th>
-              <th>Action</th>
+              <th>Genre / Format</th>
+              <th>Status / Outlet / Recognition</th>
+              <th>Action / Links</th>
             </tr>
           </thead>
           <tbody>
+            <!-- CommuterLit Halloween Contest Winner/Finalist -->
             <tr>
               <td>
                 <a href="javascript:void(0)" onclick="openReader('cutoff')" class="writing-title-link">The Cut-Off at Exit 53</a>
+                <small style="color: var(--text-muted); font-size: 0.8rem;">Selected by Editor Nancy K. Clark</small>
               </td>
-              <td>Highway Noir / Southern Thriller</td>
-              <td>Featured Selection &bull; <em>CommuterLit</em></td>
-              <td><span class="card-link" onclick="openReader('cutoff')">Read Folio &rarr;</span></td>
+              <td>Highway Noir / Psychological Horror</td>
+              <td>
+                <strong style="color: var(--orange-accent);">Top 5 Finalist &bull; Cash Prize Award</strong><br>
+                <em>CommuterLit Halloween Week 2026 Contest</em><br>
+                <small style="color: #cbd5e1;">Feature posting the week of Oct 26–30; 1st &amp; 2nd place winners announced Mon, Oct 26th.</small>
+              </td>
+              <td>
+                <div class="table-actions">
+                  <span class="card-link" onclick="openReader('cutoff')">Read Folio &rarr;</span>
+                  <a href="https://commuterlit.com" target="_blank" rel="noopener noreferrer" class="action-sublink">CommuterLit.com &nearr;</a>
+                </div>
+              </td>
             </tr>
+
+            <!-- FanStory: How Jinji Got Ginger Snaps (Poem for a Child Contest) -->
+            <tr>
+              <td>
+                <a href="javascript:void(0)" onclick="openReader('gingy')" class="writing-title-link">How Jinji Got Ginger Snaps</a>
+                <small style="color: var(--text-muted); font-size: 0.8rem;">Children's Poetry &amp; Subversive Fable</small>
+              </td>
+              <td>Rhyming Verse / Fable Parable</td>
+              <td>
+                <strong style="color: var(--orange-accent);">Published Contest Entry</strong><br>
+                <em>FanStory "Poem for a Child" Competition</em><br>
+                <small style="color: #cbd5e1;">Active voting and member showcase for children's storytelling verse.</small>
+              </td>
+              <td>
+                <div class="table-actions">
+                  <span class="card-link" onclick="openReader('gingy')">Read Folio &rarr;</span>
+                  <a href="https://www.fanstory.com" target="_blank" rel="noopener noreferrer" class="action-sublink">FanStory Contest &nearr;</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- FanStory: An Audit of the Silent Acres -->
             <tr>
               <td>
                 <a href="javascript:void(0)" onclick="openReader('audit')" class="writing-title-link">An Audit of the Silent Acres</a>
+                <small style="color: var(--text-muted); font-size: 0.8rem;">Epistolary Prayer &amp; Liturgical Verse</small>
               </td>
-              <td>Epistolary Prayer / Verse</td>
-              <td>Contest Finalist &bull; FanStory Showcase</td>
-              <td><span class="card-link" onclick="openReader('audit')">Read Folio &rarr;</span></td>
-            </tr>
-            <tr>
+              <td>Gothic Liturgy / Southern Verse</td>
               <td>
-                <a href="javascript:void(0)" onclick="openReader('gingy')" class="writing-title-link">How Gingy Got Ginger-Snapped!</a>
+                <strong style="color: var(--orange-accent);">Contest Finalist Selection</strong><br>
+                <em>FanStory Spiritual &amp; Faith Competition</em><br>
+                <small style="color: #cbd5e1;">Recognized for atmospheric dialogue and early-morning rural witness.</small>
               </td>
-              <td>Subversive Fairy Tale Satire</td>
-              <td>Anthology Candidate &bull; Dark Helix Call</td>
-              <td><span class="card-link" onclick="openReader('gingy')">Read Folio &rarr;</span></td>
+              <td>
+                <div class="table-actions">
+                  <span class="card-link" onclick="openReader('audit')">Read Folio &rarr;</span>
+                  <a href="https://www.fanstory.com" target="_blank" rel="noopener noreferrer" class="action-sublink">FanStory Contest &nearr;</a>
+                </div>
+              </td>
             </tr>
+
+            <!-- Historical Literary Prose: The Wax and the Wire -->
             <tr>
               <td>
                 <a href="javascript:void(0)" onclick="openReader('wax')" class="writing-title-link">The Wax and the Wire</a>
+                <small style="color: var(--text-muted); font-size: 0.8rem;">Southern Gothic Historical Fiction</small>
               </td>
-              <td>Literary Fiction / Speculative</td>
-              <td>Fractured &amp; Fused Prize Submission</td>
-              <td><span class="card-link" onclick="openReader('wax')">Read Folio &rarr;</span></td>
+              <td>Gothic Suspense / Macabre Lore</td>
+              <td>
+                <strong style="color: var(--orange-accent);">Prize Submission Candidate</strong><br>
+                <em>Fractured &amp; Fused Theme / Archival Showcase</em><br>
+                <small style="color: #cbd5e1;">Faulknerian choral perspective exploring preservation, madness, and permanence.</small>
+              </td>
+              <td>
+                <div class="table-actions">
+                  <span class="card-link" onclick="openReader('wax')">Read Folio &rarr;</span>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- Creative Folios Grid (with Songwriting as Last Tab) -->
+    <!-- Creative Folios Grid -->
     <div class="container">
       <div class="section-head" style="margin-top: 2rem;">
         <h2>The <span>Creative</span> Folios</h2>
-        <p>Short fiction, subversive folklore, and epistolary verse</p>
+        <p>Folk Horror and Noir, Psychological Horror, and Gothic Suspense</p>
       </div>
 
       <div class="filter-wrapper" id="works">
@@ -979,7 +1044,7 @@
           <div class="card-body">
             <span class="card-genre">Short Fiction / Thriller</span>
             <h3 class="card-title">The Cut-Off at Exit 53</h3>
-            <p class="card-meta">CommuterLit Feature Selection</p>
+            <p class="card-meta">CommuterLit Halloween 2026 Top 5 Selection &bull; Cash Prize Finalist</p>
             <p class="card-desc">A late-night turn onto an unmapped Alabama bypass traps a weary driver between blinding highway sleet and a bridge that refuses to stay put.</p>
             <div class="card-action">
               <span class="card-link" onclick="openReader('cutoff')">Read Excerpt &rarr;</span>
@@ -987,12 +1052,12 @@
           </div>
         </article>
 
-        <article class="work-card" data-category="prose">
+        <article class="work-card" data-category="poetry">
           <div class="card-body">
-            <span class="card-genre">Subversive Fairy Tale</span>
-            <h3 class="card-title">How Gingy Got Ginger-Snapped!</h3>
-            <p class="card-meta">Dark Helix Anthology Candidate</p>
-            <p class="card-desc">Baked out of pure spite, fireplace coal-ash, and fermented cider. A spiteful confection wages guerilla warfare against gingerbread civility.</p>
+            <span class="card-genre">Subversive Fable / Children's Poetry</span>
+            <h3 class="card-title">How Jinji Got Ginger Snaps</h3>
+            <p class="card-meta">FanStory "Poem for a Child" Contest Entry</p>
+            <p class="card-desc">Baked out of pure spite, fireplace coal-ash, and fermented cider. A gritty, rhythmic children's poem about a confection with a fierce bite.</p>
             <div class="card-action">
               <span class="card-link" onclick="openReader('gingy')">Read Excerpt &rarr;</span>
             </div>
@@ -1003,7 +1068,7 @@
           <div class="card-body">
             <span class="card-genre">Liturgical Petition / Verse</span>
             <h3 class="card-title">An Audit of the Silent Acres</h3>
-            <p class="card-meta">Contest Finalist Selection</p>
+            <p class="card-meta">FanStory Contest Finalist Selection</p>
             <p class="card-desc">An unvarnished 4:20 a.m. correspondence interrogating divine silence, bodily exhaustion, and the hard ledger of human labor.</p>
             <div class="card-action">
               <span class="card-link" onclick="openReader('audit')">Read Full Text &rarr;</span>
@@ -1113,10 +1178,10 @@
 
     // Excerpt Database
     const excerpts = {
-      cutoff: `<h4>The Cut-Off at Exit 53</h4><br><p>The wipers on the sedan had given up on clearing the glass twenty miles south of Evergreen. They merely dragged a greasy gray film of sleet back and forth across the windshield, turning the taillights of long-haul semis into bleeding smears of crimson.</p><br><p>Exit 53 did not appear on the paper county foldout crumpled on the passenger seat, but the metal sign rose out of the swamp pines like a jagged tooth: oxidized green, pitted with rust around the mounting bolts, pointing hard into the dark.</p>`,
-      gingy: `<h4>How Gingy Got Ginger-Snapped!</h4><br><p>The witch did not use standard baker’s molasses. She used blackstrap dregs boiled down in an iron washpot, and instead of ginger root, she ground up dried dandelion taproots and horse-radish cured in chimney soot.</p><br><p>When the oven latch gave way, there was no cheerful piping of icing or peppermint cheer. He stood on the cookie sheet smelling like bitter vinegar and wet coal, his currant eyes hardened into cold flint.</p>`,
-      audit: `<h4>An Audit of the Silent Acres</h4><br><p>It’s 4:20 in the morning. The coffee sitting on this laminate is cold, and the pine trees outside the window haven't started shedding mist yet. The highway won’t wake up for another forty minutes, so right now it’s just me, the hum of the refrigerator coil, and a yellow legal pad that won't let the math work out.</p><br><p>Yesterday a young mother on my route was counting out nickels for formula while her disconnect notice sat on the dash. Last week a thirty-year mechanic sat on a folding chair waiting on a sack of dry rice, staring at his palms like they were dead meat.</p><br><p>Take this tally for what it is, Padre: a tired man in Your ditch, leaning hard on a dull hoe, waiting on sundown to bring an honest wage.</p>`,
-      wax: `<h4>The Wax and the Wire</h4><br><p>The recording needle gouged a single furrow into the revolving cylinder, throwing up a curl of dark beeswax like cedar shavings behind a block plane. In the parlor silence, the machine hummed with the mechanical pulse of early telegraph lines—retaining sound not as song, but as a permanent, fragile scar.</p>`,
+      cutoff: `<h4>The Cut-Off at Exit 53</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Selected by Editor Nancy K. Clark for the CommuterLit Halloween Week 2026 Contest (Top 5 Finalist &bull; Cash Prize Award). Scheduled for feature publication the week of October 26–30, 2026; 1st and 2nd place winners announced Monday, October 26th.</em></p><p>The wipers on the sedan had given up on clearing the glass twenty miles south of Evergreen. They merely dragged a greasy gray film of sleet back and forth across the windshield, turning the taillights of long-haul semis into bleeding smears of crimson.</p><br><p>Exit 53 did not appear on the paper county foldout crumpled on the passenger seat, but the metal sign rose out of the swamp pines like a jagged tooth: oxidized green, pitted with rust around the mounting bolts, pointing hard into the dark.</p>`,
+      gingy: `<h4>How Jinji Got Ginger Snaps</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Published Contest Entry for the FanStory "Poem for a Child" Competition.</em></p><p>The witch did not use standard baker’s molasses. She used blackstrap dregs boiled down in an iron washpot, and instead of ginger root, she ground up dried dandelion taproots and horse-radish cured in chimney soot.</p><br><p>When the oven latch gave way, there was no cheerful piping of icing or peppermint cheer. He stood on the cookie sheet smelling like bitter vinegar and wet coal, his currant eyes hardened into cold flint.</p>`,
+      audit: `<h4>An Audit of the Silent Acres</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Contest Finalist Selection &bull; FanStory Showcase.</em></p><p>It’s 4:20 in the morning. The coffee sitting on this laminate is cold, and the pine trees outside the window haven't started shedding mist yet. The highway won’t wake up for another forty minutes, so right now it’s just me, the hum of the refrigerator coil, and a yellow legal pad that won't let the math work out.</p><br><p>Yesterday a young mother on my route was counting out nickels for formula while her disconnect notice sat on the dash. Last week a thirty-year mechanic sat on a folding chair waiting on a sack of dry rice, staring at his palms like they were dead meat.</p><br><p>Take this tally for what it is, Padre: a tired man in Your ditch, leaning hard on a dull hoe, waiting on sundown to bring an honest wage.</p>`,
+      wax: `<h4>The Wax and the Wire</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Southern Gothic Historical Prose &bull; The Key West Carl von Cosel Archive.</em></p><p>The recording needle gouged a single furrow into the revolving cylinder, throwing up a curl of dark beeswax like cedar shavings behind a block plane. In the parlor silence, the machine hummed with the mechanical pulse of early telegraph lines—retaining sound not as song, but as a permanent, fragile scar.</p>`,
       song_midnight: `<h4>Midnight in Montgomery (Lyric Folio)</h4><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">The headlights catch the cypress knees where the asphalt gives up clean,<br>A pocket full of silver coin and memories in between.<br>The red clay drinks the river dry before the morning fog can rise,<br>And every signpost on the road wears a deputy's disguise.<br><br>We don't ask what the river kept; we only count the cost,<br>Between the boy who left the town and the shadow that he lost.</p>`,
       song_sandman: `<h4>The Sandman (Lyric Folio)</h4><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">Sleep don't settle easy when the pine sap starts to bleed,<br>You trade your waking daylight for another mouth to feed.<br>The crickets take the graveyard shift, the rafters groan in time,<br>And every dollar earned at noon feels counterfeit by nine.<br><br>Rest is just a rumor that the timber forgot to keep,<br>When the marrow in your shoulders refuses to let you sleep.</p>`,
       song_purpose: `<h4>Broken Into Purpose (Lyric Folio)</h4><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">You cannot temper iron till it passes through the coals,<br>The fractures in the timber show the grain beneath the whole.<br>They told you that the silence was an empty, wasted space,<br>Until you learned to read the scars carved deep across your face.<br><br>What broke you didn't finish you; it gave your hands a shape,<br>To hold the plow against the ridge and measure your escape.</p>`
