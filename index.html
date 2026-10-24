@@ -411,7 +411,7 @@
       text-decoration: underline;
     }
 
-    /* Featured Writings Showcase (Replacing Listening Station) */
+    /* Featured Writings Showcase */
     .writings-spotlight {
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
@@ -762,7 +762,7 @@
       </div>
     </section>
 
-    <!-- Featured Writings Showcase (Replacing Listening Station) -->
+    <!-- Featured Writings Showcase -->
     <section class="container" id="writings">
       <div class="writings-spotlight">
         <div class="section-head" style="margin: 0 0 1.5rem 0;">
@@ -942,25 +942,16 @@
         </article>
       </div>
 
-      <!-- Dossier / Bio Section with Image -->
-      <div class="bio-photo-card">
-  <!-- Author image calling BIOO.jpg from the same folder -->
-  <img 
-    src="BIOO.jpg" 
-    alt="Robert Vickery II seated in private book archive" 
-    class="bio-img" 
-    onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
-  >
-  <!-- Fallback box if the image file is missing or misnamed -->
-  <div id="photo-fallback" style="display:none; height:460px; align-items:center; justify-content:center; flex-direction:column; background:#090a0d; color:var(--orange-accent); font-family:var(--font-display);">
-    <span>Robert Vickery II</span>
-    <small style="color:var(--text-muted); margin-top:0.5rem;">Vickerian &bull; Author &bull; Educator</small>
-  </div>
-</div>
+      <!-- Dossier / Bio Section with Hosted Bio Picture -->
       <section class="bio-section" id="dossier">
         <div class="bio-grid">
           <div class="bio-photo-card">
-            <img src="BIOO.jpg" alt="Robert Vickery II seated in private book archive" class="bio-img" onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
+            <img 
+              src="https://i.postimg.cc/brDcw4qq/BIOO.jpg" 
+              alt="Robert Vickery II seated in private book archive" 
+              class="bio-img" 
+              onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
+            >
             <div id="photo-fallback" style="display:none; height:460px; align-items:center; justify-content:center; flex-direction:column; background:#090a0d; color:var(--orange-accent); font-family:var(--font-display);">
               <span>Robert Vickery II</span>
               <small style="color:var(--text-muted); margin-top:0.5rem;">Vickerian &bull; Author &bull; Educator</small>
