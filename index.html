@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robert Vickery II | Vickerian Creative Archive</title>
-  <meta name="description" content="Official creative portfolio of Robert Vickery II and Vickerian Creative. Southern Gothic fiction, featured writings, songwriting by Vickery & The Fable Spinners, and institutional initiatives.">
+  <meta name="description" content="Official creative portfolio of Robert Vickery II. Southern Gothic fiction, featured writings, songwriting, and institutional initiatives.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -91,16 +91,6 @@
       color: var(--orange-accent);
     }
 
-    .brand-sub {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      margin-left: 0.5rem;
-      border-left: 1px solid var(--border-subtle);
-      padding-left: 0.5rem;
-      text-transform: uppercase;
-    }
-
     .nav-links {
       display: flex;
       gap: 1.5rem;
@@ -120,10 +110,160 @@
       color: var(--orange-accent);
     }
 
-    /* Hero Section */
+    /* Hero Section with Flickering Match */
     .hero {
-      padding: 6.5rem 0 3.5rem;
+      padding: 7rem 0 4rem;
       text-align: center;
+      position: relative;
+      overflow: visible;
+    }
+
+    /* Lit Flickering Match Illustration & Aura */
+    .match-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
+      width: 320px;
+      height: 380px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.42;
+    }
+
+    /* Soft flickering background aura */
+    .match-glow-aura {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(255, 122, 0, 0.45) 0%, rgba(255, 60, 0, 0.2) 45%, transparent 75%);
+      border-radius: 50%;
+      filter: blur(28px);
+      animation: auraPulse 1.8s infinite ease-in-out alternate;
+    }
+
+    /* Wooden Matchstick */
+    .matchstick {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 200px;
+      background: linear-gradient(to right, #24160c, #4a2f1b 50%, #1f1208);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Charred Match Head */
+    .match-head {
+      position: absolute;
+      top: 155px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 32px;
+      background: radial-gradient(circle at 40% 30%, #3a1105, #140704 70%);
+      border-radius: 50% 50% 40% 40%;
+      box-shadow: inset 0 -4px 6px rgba(255, 80, 0, 0.4);
+    }
+
+    /* Outer Dynamic Flame */
+    .match-flame {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px;
+      height: 110px;
+      background: radial-gradient(ellipse at bottom, rgba(255, 230, 110, 0.95) 0%, rgba(255, 122, 0, 0.85) 45%, rgba(210, 35, 0, 0.7) 75%, transparent 95%);
+      border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
+      filter: blur(1.5px);
+      box-shadow: 0 0 35px rgba(255, 122, 0, 0.75), 0 0 65px rgba(255, 60, 0, 0.45);
+      animation: flameWaver 0.16s infinite alternate ease-in-out;
+      transform-origin: bottom center;
+    }
+
+    /* Inner Intense Flame Core */
+    .match-flame-core {
+      position: absolute;
+      top: 105px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 55px;
+      background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffeaa7 50%, rgba(255, 170, 0, 0.9) 85%);
+      border-radius: 50% 50% 35% 35% / 65% 65% 35% 35%;
+      filter: blur(0.5px);
+      animation: coreFlicker 0.12s infinite alternate ease-in-out;
+      transform-origin: bottom center;
+    }
+
+    /* Base Blue Ignition Halo */
+    .match-flame-blue {
+      position: absolute;
+      top: 146px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 18px;
+      background: radial-gradient(ellipse at center, rgba(64, 156, 255, 0.85) 0%, transparent 80%);
+      border-radius: 50%;
+      filter: blur(1px);
+    }
+
+    /* Natural Flame Flicker Animations */
+    @keyframes flameWaver {
+      0% {
+        transform: translateX(-50%) scale(1) rotate(-1.5deg) skewX(-1.5deg);
+        border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
+      }
+      25% {
+        transform: translateX(-51%) scaleY(1.07) scaleX(0.96) rotate(1.8deg) skewX(2deg);
+      }
+      50% {
+        transform: translateX(-49%) scaleY(0.95) scaleX(1.03) rotate(-2.2deg) skewX(-1deg);
+      }
+      75% {
+        transform: translateX(-50.5%) scaleY(1.04) scaleX(0.97) rotate(1deg) skewX(1.5deg);
+      }
+      100% {
+        transform: translateX(-49.5%) scale(1.02) rotate(-0.5deg) skewX(-0.5deg);
+      }
+    }
+
+    @keyframes coreFlicker {
+      0% {
+        transform: translateX(-50%) scale(1) rotate(-1deg);
+        opacity: 0.95;
+      }
+      50% {
+        transform: translateX(-51%) scaleY(1.08) scaleX(0.93) rotate(1.2deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-49%) scaleY(0.94) scaleX(1.04) rotate(-1.4deg);
+        opacity: 0.9;
+      }
+    }
+
+    @keyframes auraPulse {
+      0% {
+        opacity: 0.65;
+        transform: translateX(-50%) scale(0.92);
+      }
+      100% {
+        opacity: 0.95;
+        transform: translateX(-50%) scale(1.12);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-badge {
@@ -136,17 +276,18 @@
       border-radius: 999px;
       color: var(--orange-accent);
       margin-bottom: 1.5rem;
-      background: rgba(255, 122, 0, 0.06);
+      background: rgba(255, 122, 0, 0.08);
+      backdrop-filter: blur(4px);
     }
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-size: clamp(2.4rem, 5.2vw, 4.4rem);
       letter-spacing: 0.05em;
       line-height: 1.15;
       margin-bottom: 1.25rem;
       color: #ffffff;
-      text-shadow: 0 0 30px rgba(255, 122, 0, 0.15);
+      text-shadow: 0 0 35px rgba(255, 122, 0, 0.25), 0 4px 15px rgba(0, 0, 0, 0.9);
     }
 
     .hero-title span {
@@ -160,6 +301,7 @@
       color: var(--text-muted);
       max-width: 760px;
       margin: 0 auto 2.5rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     }
 
     .hero-actions {
@@ -195,15 +337,16 @@
     }
 
     .btn-outline {
-      background: transparent;
+      background: rgba(5, 5, 5, 0.6);
       color: var(--text-main);
       border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(6px);
     }
 
     .btn-outline:hover {
       border-color: var(--orange-accent);
       color: var(--orange-accent);
-      background: rgba(255, 122, 0, 0.05);
+      background: rgba(255, 122, 0, 0.08);
       transform: translateY(-2px);
     }
 
@@ -651,6 +794,11 @@
       .bio-img {
         height: 380px;
       }
+      .match-container {
+        width: 250px;
+        height: 300px;
+        transform: translate(-50%, -55%);
+      }
       .nav-links {
         display: none;
       }
@@ -669,7 +817,6 @@
     <div class="container nav-wrapper">
       <a href="#" class="brand-logo">
         Robert <span>Vickery II</span>
-        <span class="brand-sub">Vickerian</span>
       </a>
       <ul class="nav-links">
         <li><a href="#featured">Headlines</a></li>
@@ -683,12 +830,24 @@
 
   <main>
     <section class="hero container">
-      <div class="hero-badge">Vickerian Creative &bull; Songs &amp; Stories by Vickery &amp; The Fable Spinners</div>
-      <h1 class="hero-title">Words on the Wire.<br><span>Songs in the Dark.</span></h1>
-      <p class="hero-sub">Southern Gothic fiction, liturgical petitions, lyrical narratives, and community initiatives curated under the Vickerian imprint by Robert Vickery II.</p>
-      <div class="hero-actions">
-        <a href="#writings" class="btn btn-orange">Featured Writings</a>
-        <a href="#songwriting" class="btn btn-outline">Songwriting &amp; Verse</a>
+      <!-- Lit Flickering Match Illustration Behind the Headline -->
+      <div class="match-container" aria-hidden="true">
+        <div class="match-glow-aura"></div>
+        <div class="match-flame"></div>
+        <div class="match-flame-core"></div>
+        <div class="match-flame-blue"></div>
+        <div class="match-head"></div>
+        <div class="matchstick"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">Vickerian Creative &bull; A Creative Writing Wonderland</div>
+        <h1 class="hero-title">Words on the Wire.<br><span>Thoughts in the Dark.</span></h1>
+        <p class="hero-sub">Southern Gothic fiction, liturgical petitions, lyrical narratives, and community initiatives curated under the Vickerian imprint by Robert Vickery II.</p>
+        <div class="hero-actions">
+          <a href="#writings" class="btn btn-orange">Featured Writings</a>
+          <a href="#songwriting" class="btn btn-outline">Songwriting &amp; Verse</a>
+        </div>
       </div>
     </section>
 
