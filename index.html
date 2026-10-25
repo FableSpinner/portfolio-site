@@ -693,6 +693,67 @@
       text-transform: uppercase;
     }
 
+    /* Bio & Dossier */
+    .bio-section {
+      padding: 5rem 0 3rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .bio-photo-card {
+      border: 1px solid var(--border-active);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-card);
+      padding: 0.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--orange-glow);
+    }
+
+    .bio-img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 4px;
+      display: block;
+      filter: contrast(1.05);
+    }
+
+    .bio-text h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .bio-text h2 span {
+      color: var(--orange-accent);
+    }
+
+    .bio-text p {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: #d1d5db;
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+
+    .bio-text a {
+      color: var(--orange-accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .bio-text a:hover {
+      text-decoration: underline;
+    }
+
     /* Correspondence & Representation Section */
     .correspondence-section {
       padding: 5rem 0 3rem;
@@ -766,67 +827,6 @@
     textarea.form-control {
       resize: vertical;
       min-height: 140px;
-    }
-
-    /* Bio & Dossier */
-    .bio-section {
-      padding: 5rem 0;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .bio-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    .bio-photo-card {
-      border: 1px solid var(--border-active);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--bg-card);
-      padding: 0.75rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--orange-glow);
-    }
-
-    .bio-img {
-      width: 100%;
-      height: 460px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 4px;
-      display: block;
-      filter: contrast(1.05);
-    }
-
-    .bio-text h2 {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-    }
-
-    .bio-text h2 span {
-      color: var(--orange-accent);
-    }
-
-    .bio-text p {
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      color: #d1d5db;
-      margin-bottom: 1.25rem;
-      line-height: 1.7;
-    }
-
-    .bio-text a {
-      color: var(--orange-accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .bio-text a:hover {
-      text-decoration: underline;
     }
 
     /* Modal Reader */
@@ -960,8 +960,8 @@
         <li><a href="#writings">Featured Writings</a></li>
         <li><a href="#works">Folios</a></li>
         <li><a href="#critiques">Critiques</a></li>
-        <li><a href="#dispatch">Dispatch</a></li>
         <li><a href="#dossier">Dossier</a></li>
+        <li><a href="#dispatch">Dispatch</a></li>
       </ul>
     </div>
   </header>
@@ -997,7 +997,19 @@
       </div>
 
       <div class="featured-grid">
-        <!-- 1. Editor / Published Article: Change Makers (6th Edition) - Plate It Forward -->
+        <!-- 1. October 22nd, 2026: Halloween Writing Contest Finalist Selection -->
+        <article class="featured-card">
+          <div>
+            <span class="feat-tag">Oct 22, 2026 &bull; International Fiction Adjudication</span>
+            <h3 class="feat-title">Halloween Writing Contest Finalist: Top 5 of 55 Submissions</h3>
+            <p class="feat-desc">Robert Vickery II's psychological horror submission, <em>The Cut-Off at Exit 53</em>, was officially selected on October 22nd, 2026 as a Top 5 Finalist out of 55 international entries in the 2026 CommuterLit.com Halloween Contest. His work will be showcased across the literary platform from October 26th through October 31st.</p>
+          </div>
+          <a href="https://commuterlit.com" target="_blank" rel="noopener noreferrer" class="feat-link">
+            CommuterLit.com Showcase &rarr;
+          </a>
+        </article>
+
+        <!-- 2. Editor / Published Article: Change Makers (6th Edition) - Plate It Forward -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">National Journal &bull; Phi Theta Kappa Honor Society</span>
@@ -1009,43 +1021,43 @@
           </a>
         </article>
 
-        <!-- 2. Transforming Basic Needs / Phi Theta Kappa -->
+        <!-- 3. Transforming Basic Needs / Phi Theta Kappa -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Community Spotlight &bull; This Is Alabama</span>
             <h3 class="feat-title">Phi Theta Kappa: Transforming Campus Basic Needs</h3>
-            <p class="feat-desc">Regional feature spotlighting the Alpha Epsilon Nu PTK chapter at Bishop State leading the drive to combat food insecurity with institutional dignity.</p>
+            <p class="feat-desc">Regional feature spotlighting the Alpha Epsilon Nu PTK chapter led by co-advisor Robert Vickery II at Bishop State, driving innovative multi-campus interventions to combat collegiate food insecurity with institutional dignity.</p>
           </div>
           <a href="https://www.facebook.com/AMGThisIsAlabama/photos/when-the-members-of-a-phi-theta-kappa-honor-society-chapter-at-bishop-state-comm/1071566801875524/" target="_blank" rel="noopener noreferrer" class="feat-link">
             View Feature &rarr;
           </a>
         </article>
 
-        <!-- 3. Students Hit Campus Hunger Head-On -->
+        <!-- 4. Students Hit Campus Hunger Head-On -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Statewide Press &bull; AL.com</span>
             <h3 class="feat-title">Students Hit Campus Hunger Head-On With Free Corner Store</h3>
-            <p class="feat-desc">Statewide news feature reporting on the innovative grocery model and collaborative volunteer logistics transforming collegiate hunger relief.</p>
+            <p class="feat-desc">Statewide news feature reporting on the innovative grocery relief model and volunteer logistics, featuring an in-depth interview with Professor Robert Vickery II detailing systemic collegiate food security solutions.</p>
           </div>
           <a href="https://www.al.com/life/2026/07/students-hit-campus-hunger-head-on-with-innovative-free-corner-store.html" target="_blank" rel="noopener noreferrer" class="feat-link">
             Read AL.com Story &rarr;
           </a>
         </article>
 
-        <!-- 4. The Pantry Logistics & Student Coalition Support -->
+        <!-- 5. The Pantry Logistics & Student Coalition Support -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Community Coalition &bull; Love All Pantry</span>
             <h3 class="feat-title">Pantry Logistics &amp; Student Coalition Support</h3>
-            <p class="feat-desc">Partner spotlight highlighting logistical support, retail grocery rescue partnerships, and collaborative distribution networks serving students.</p>
+            <p class="feat-desc">Partner dispatch highlighting logistical operations, retail grocery rescue partnerships, and collaborative distribution networks; article shouts out Robert Vickery II's partnership in data collection for the 103 Corner Store, led by co-advisor of PTK and co-chair for the Food for Thought Committee Robert Vickery II.</p>
           </div>
           <a href="https://www.facebook.com/loveallpantry/posts/did-you-know-love-all-pantry-at-central-support-the-students-of-bishop-state-com/932237245794978/" target="_blank" rel="noopener noreferrer" class="feat-link">
             View Partner Dispatch &rarr;
           </a>
         </article>
 
-        <!-- 5. The 103 Corner Store: 3,000 Food Assistance Services -->
+        <!-- 6. The 103 Corner Store: 3,000 Food Assistance Services -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Institutional News &bull; Bishop State</span>
@@ -1057,29 +1069,29 @@
           </a>
         </article>
 
-        <!-- 6. TROY Cuts Ribbon on New Center for Student Success -->
+        <!-- 7. TROY Cuts Ribbon on New Center for Student Success -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Campus Dedication &bull; Troy Today</span>
             <h3 class="feat-title">TROY Cuts Ribbon on New Center for Student Success</h3>
-            <p class="feat-desc">Coverage commemorating the dedication of the Center for Student Success at the Montgomery Campus, highlighting comprehensive student retention initiatives and access expansion.</p>
+            <p class="feat-desc">Dedication coverage of the Center for Student Success at the Montgomery Campus; features Robert Vickery II, coordinator of student retention and student success for Troy Montgomery, in expanding student access.</p>
           </div>
           <a href="https://today.troy.edu/news/troy-cuts-ribbon-on-new-center-for-student-success-at-montgomery-campus/" target="_blank" rel="noopener noreferrer" class="feat-link">
             Read Troy Feature &rarr;
           </a>
         </article>
 
-        <!-- 7. PTK Mental Health Week 2024 & Van Gogh Exhibit -->
+        <!-- 8. PTK Mental Health Week 2024 & Van Gogh Exhibit -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Campus Advocacy &bull; Phi Theta Kappa Partnership</span>
             <h3 class="feat-title">Vickerian Van Gogh Exhibit: De-Stigmatizing Mental Health</h3>
-            <p class="feat-desc">In 2024, Robert Vickery II partnered with Phi Theta Kappa for Mental Health Week, placing an original Van Gogh piece from the Vickerian Collection on institutional display for two years to bridge conversations dismantling mental health stigma. The masterpiece was selected as the college's official 2024 Christmas card and inspired a collective campus community painting initiative led by artists Lydia Host and Ginger.</p>
+            <p class="feat-desc">In 2024, Robert Vickery II partnered with Phi Theta Kappa for Mental Health Week, placing an original Van Gogh piece from the Vickerian Collection on institutional display for two years to bridge conversations dismantling mental health stigma. The masterpiece was selected as the college's official 2024 Christmas card and inspired a collective campus community painting initiative led by artist Lydia Host and Ginger.</p>
           </div>
           <span class="feat-link" style="color: var(--text-muted);">Campus Exhibition &bull; 2024&ndash;2026</span>
         </article>
 
-        <!-- 8. Auburn University Montgomery Invited Guest Speaker -->
+        <!-- 9. Auburn University Montgomery Invited Guest Speaker -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Academic Address &bull; Auburn University Montgomery</span>
@@ -1089,47 +1101,47 @@
           <span class="feat-link" style="color: var(--text-muted);">Graduate Faculty Colloquium</span>
         </article>
 
-        <!-- 9. Duke University Invited Presentation: MOOC & Writing Formula -->
+        <!-- 10. Duke University Invited Presentation: MOOC & Writing Formula -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">National Colloquium &bull; Duke University</span>
             <h3 class="feat-title">Duke University: The x = a + b + c Writing Architecture</h3>
-            <p class="feat-desc">Invited by Duke University to present his proprietary composition model, <em>x = a + b + c</em>, examining systemic rhetorical frameworks and scalable digital pedagogy across Massive Open Online Course (MOOC) architectures.</p>
+            <p class="feat-desc">Robert Vickery II was invited as an undergraduate by Duke University to present his proprietary college writing formula, <em>x = a + b + c</em>, exploring rhetorical architecture and examining the pedagogical importance of MOOC (Massive Open Online Course) digital learning environments.</p>
           </div>
           <span class="feat-link" style="color: var(--text-muted);">Digital Learning Keynote</span>
         </article>
 
-        <!-- 10. Confucius Institute & ESL Program Partnership -->
+        <!-- 11. Confucius Institute & ESL Program Partnership -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Global Exchange &bull; Department of English &amp; Philosophy</span>
             <h3 class="feat-title">Confucius Institute ESL Academic Partnership</h3>
-            <p class="feat-desc">Partnered with the Confucius Institute at Auburn University Montgomery to coordinate and direct specialized English as a Second Language (ESL) coursework and linguistic integration for international cohort scholars arriving from Hubei, China.</p>
+            <p class="feat-desc">Partnership with the Confucius Institute at Auburn University Montgomery for the English as a Second Language (ESL) program for scholars from Hubei, China; coordinated by Robert Vickery II for the Department of English and Philosophy.</p>
           </div>
           <span class="feat-link" style="color: var(--text-muted);">International Program Administration</span>
         </article>
 
-        <!-- 11. SEAMLESS Dual Enrollment Directorship -->
+        <!-- 12. SEAMLESS Dual Enrollment Directorship -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Institutional Articulation &bull; AUM / Auburn University</span>
             <h3 class="feat-title">SEAMLESS Academic Articulation Coordinator (2010)</h3>
-            <p class="feat-desc">Appointed in 2010 to coordinate the SEAMLESS bridge program connecting Auburn University Montgomery and Auburn University, establishing collaborative curricular transfer pathways and dual-institutional retention pipelines.</p>
+            <p class="feat-desc">Appointed in 2010 as coordinator, Robert Vickery II directed the SEAMLESS articulation bridge program connecting Auburn University Montgomery and Auburn University, advancing transfer mobility and academic continuity.</p>
           </div>
           <span class="feat-link" style="color: var(--text-muted);">Program Directorship</span>
         </article>
 
-        <!-- 12. Dr. Bobby Jean Walker Outstanding Adjunct Award -->
+        <!-- 13. Dr. Robbie Jean Walker Outstanding Adjunct Award -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Faculty Honor &bull; Auburn University Montgomery</span>
-            <h3 class="feat-title">Dr. Bobby Jean Walker Outstanding Adjunct Award (2014&ndash;2015)</h3>
-            <p class="feat-desc">Conferred the prestigious Dr. Bobby Jean Walker Outstanding Adjunct Award by Auburn University Montgomery for 2014–2015, recognizing superior classroom dedication, pedagogical innovation, and institutional excellence in undergraduate humanities instruction.</p>
+            <h3 class="feat-title">Dr. Robbie Jean Walker Outstanding Adjunct Award (2014&ndash;2015)</h3>
+            <p class="feat-desc">Conferred the prestigious Dr. Robbie Jean Walker Outstanding Adjunct Award, presented to Robert Vickery II, Graduate Teaching Assistant (GTA) and Lecturer for Auburn University Montgomery in the Department of English and Philosophy, honoring exceptional instruction and humanities mentorship.</p>
           </div>
           <span class="feat-link" style="color: var(--text-muted);">Excellence in Teaching Award</span>
         </article>
 
-        <!-- 13. Alexander City Outlook Feature: CACC Remembers Holocaust with Educational Exhibit -->
+        <!-- 14. Alexander City Outlook Feature: CACC Remembers Holocaust with Educational Exhibit -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Front Page Feature &bull; The Outlook (Vol. 126, No. 78)</span>
@@ -1139,24 +1151,24 @@
           <span class="feat-link" style="color: var(--text-muted);">The Outlook &bull; April 19, 2018 &bull; Vol. 126, No. 78</span>
         </article>
 
-        <!-- 14. Master's Thesis: Paternal Bonds & Phenomenology -->
+        <!-- 15. Master's Thesis: Paternal Bonds & Phenomenology -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Academic Archive &bull; AUM Digital Repository</span>
             <h3 class="feat-title">The Shoah's Impact on Family Continuity and Paternal Bonds: Understanding the Phenomenology of Father-Son Relationships in Art Spiegelman's Maus and Elie Wiesel's Night</h3>
-            <p class="feat-desc">Archival graduate thesis examining Holocaust generational trauma, paternal continuity, and the phenomenology of family memory across canonical survivor narratives.</p>
+            <p class="feat-desc">Complete archival graduate thesis authored by graduate student Robert Vickery II, examining Holocaust generational trauma, paternal continuity, and phenomenological memory across canonical survivor texts.</p>
           </div>
           <a href="https://digitalarchives.aum.edu/sites/default/files/2025-02/Thesis_194_Vickery%20II.pdf" target="_blank" rel="noopener noreferrer" class="feat-link">
             Read Thesis Manuscript &rarr;
           </a>
         </article>
 
-        <!-- 15. Pi Kappa Phi Historical Membership Record -->
+        <!-- 16. Pi Kappa Phi Historical Membership Record -->
         <article class="featured-card">
           <div>
             <span class="feat-tag">Fraternal Archive &bull; Pi Kappa Phi Digital Museum</span>
             <h3 class="feat-title">Pi Kappa Phi Historical Membership Record</h3>
-            <p class="feat-desc">Archival registry and digital preservation entry documenting collegiate fraternity leadership, chapter initiation, and historical records in the national museum repository.</p>
+            <p class="feat-desc">Archival registry and digital preservation entry documenting chapter leadership and the Archon Recovery for Robert Vickery II in the national museum repository.</p>
           </div>
           <a href="https://pikapp.historyit.com/items/view/digital-museum/91112/member" target="_blank" rel="noopener noreferrer" class="feat-link">
             View Museum Record &rarr;
@@ -1191,7 +1203,7 @@
               </td>
               <td>Halloween Horror / Thriller &bull; Southern Gothic Noir</td>
               <td>
-                <strong style="color: var(--orange-accent);">Top 5 Finalist &bull; Cash Prize Showcase</strong><br>
+                <strong style="color: var(--orange-accent);">Top 5 Finalist (Top 5 of 55 Entries)</strong><br>
                 <em>CommuterLit Halloween Horror / Thriller Contest</em><br>
                 <small style="color: #cbd5e1;">Showcase feature scheduled October 26th &ndash; October 31st; 1st &amp; 2nd place winners announced Monday, October 28th.</small>
               </td>
@@ -1203,10 +1215,10 @@
               </td>
             </tr>
 
-            <!-- FanStory: How Gingy Got Ginger Snaps (Poem for a Child Contest) -->
+            <!-- FanStory: How Gingy Got Gingersnapped (Poem for a Child Contest) -->
             <tr>
               <td>
-                <a href="javascript:void(0)" onclick="openReader('gingy')" class="writing-title-link">How Gingy Got Ginger Snaps</a>
+                <a href="javascript:void(0)" onclick="openReader('gingy')" class="writing-title-link">How Gingy Got Gingersnapped</a>
                 <small style="color: var(--text-muted); font-size: 0.8rem;">Fairy Tales &amp; Fables &bull; Children's Poetry</small>
               </td>
               <td>Rhyming Verse / Fable Parable</td>
@@ -1223,22 +1235,22 @@
               </td>
             </tr>
 
-            <!-- FanStory: An Audit of the Silent Acres (Dear God Contest) -->
+            <!-- FanStory: The Salt Line (Poetry Showcase) -->
             <tr>
               <td>
-                <a href="javascript:void(0)" onclick="openReader('audit')" class="writing-title-link">An Audit of the Silent Acres</a>
-                <small style="color: var(--text-muted); font-size: 0.8rem;">Epistolary Prayer &amp; Liturgical Verse</small>
+                <a href="javascript:void(0)" onclick="openReader('salt')" class="writing-title-link">The Salt Line</a>
+                <small style="color: var(--text-muted); font-size: 0.8rem;">Southern Verse &bull; Folk Gothic Poetry</small>
               </td>
-              <td>Gothic Liturgy / Southern Verse</td>
+              <td>Gothic Poetry / Coastal Lore</td>
               <td>
-                <strong style="color: var(--orange-accent);">Contest Entry Selection</strong><br>
-                <em>FanStory "Dear God" Poetry Competition</em><br>
-                <small style="color: #cbd5e1;">Recognized for atmospheric dialogue, agrarian exhaustion, and dawn witness.</small>
+                <strong style="color: var(--orange-accent);">Published Entry Selection</strong><br>
+                <em>FanStory Poetry Showcase</em><br>
+                <small style="color: #cbd5e1;">Exploring Gulf Coast barrier tides, unpresent narration, and spectral boundaries.</small>
               </td>
               <td>
                 <div class="table-actions">
-                  <span class="card-link" onclick="openReader('audit')">Read Folio &rarr;</span>
-                  <a href="https://www.fanstory.com/displaystory.jsp?id=1194760" target="_blank" rel="noopener noreferrer" class="action-sublink">Read on FanStory &nearr;</a>
+                  <span class="card-link" onclick="openReader('salt')">Read Folio &rarr;</span>
+                  <a href="https://www.fanstory.com/displaystory.jsp?id=1194788" target="_blank" rel="noopener noreferrer" class="action-sublink">Read on FanStory &nearr;</a>
                 </div>
               </td>
             </tr>
@@ -1249,11 +1261,11 @@
                 <a href="javascript:void(0)" onclick="openReader('wax')" class="writing-title-link">The Wax and the Wire</a>
                 <small style="color: var(--text-muted); font-size: 0.8rem;">Southern Gothic Historical Fiction</small>
               </td>
-              <td>Gothic Suspense / Macabre Lore</td>
+              <td>Gothic Suspense / Faulknerian Prose</td>
               <td>
                 <strong style="color: var(--orange-accent);">Under Review</strong><br>
                 <em>Zoetrope: All-Story 2026 Short Fiction Competition</em><br>
-                <small style="color: #cbd5e1;">Submitted and undergoing active editorial review for annual prize consideration.</small>
+                <small style="color: #cbd5e1;">A retelling of a historical Florida love story gone awry, crafted in the style of Faulkner's <em>A Rose for Emily</em> and relocated to rural Alabama.</small>
               </td>
               <td>
                 <div class="table-actions">
@@ -1296,7 +1308,7 @@
         <article class="work-card" data-category="poetry">
           <div class="card-body">
             <span class="card-genre">Fairy Tales &amp; Fables / Children's Verse</span>
-            <h3 class="card-title">How Gingy Got Ginger Snaps</h3>
+            <h3 class="card-title">How Gingy Got Gingersnapped</h3>
             <p class="card-meta">FanStory "Poem for a Child" Contest Entry</p>
             <p class="card-desc">Baked out of pure spite, fireplace coal-ash, and fermented cider. A gritty, rhythmic children's fable about a confection with a fierce bite that outwits the hearth.</p>
             <div class="card-action">
@@ -1308,49 +1320,55 @@
 
         <article class="work-card" data-category="poetry">
           <div class="card-body">
-            <span class="card-genre">Liturgical Petition / "Dear God" Verse</span>
-            <h3 class="card-title">An Audit of the Silent Acres</h3>
-            <p class="card-meta">FanStory "Dear God" Contest Entry</p>
-            <p class="card-desc">An unvarnished 4:20 a.m. correspondence interrogating divine silence, bodily exhaustion, and the hard ledger of human labor across the Alabama timberline.</p>
+            <span class="card-genre">Southern Folk Gothic Verse</span>
+            <h3 class="card-title">The Salt Line</h3>
+            <p class="card-meta">FanStory Published Poetry Entry</p>
+            <p class="card-desc">Tracing spectral tide margins, salt boundaries, and agrarian hush across Gulf shores through an unpresent, observant narrator voice.</p>
             <div class="card-action">
-              <span class="card-link" onclick="openReader('audit')">Read Full Text &rarr;</span>
-              <a href="https://www.fanstory.com/displaystory.jsp?id=1194760" target="_blank" rel="noopener noreferrer" class="card-link" style="font-size:0.75rem;">FanStory &nearr;</a>
+              <span class="card-link" onclick="openReader('salt')">Read Full Text &rarr;</span>
+              <a href="https://www.fanstory.com/displaystory.jsp?id=1194788" target="_blank" rel="noopener noreferrer" class="card-link" style="font-size:0.75rem;">FanStory &nearr;</a>
             </div>
           </div>
         </article>
 
+        <!-- 1. Hope Heaven has a Smoking Section -->
         <article class="work-card" data-category="songwriting">
           <div class="card-body">
-            <span class="card-genre">Songwriting &amp; Verse</span>
-            <h3 class="card-title">Midnight in Montgomery</h3>
-            <p class="card-meta">Vickery &amp; The Fable Spinners</p>
-            <p class="card-desc">Atmospheric strings, sparse acoustic cadence, and narrative lyricism exploring lineage, asphalt memories, and Southern crossroads.</p>
+            <span class="card-genre">Country Song &bull; Adding Hell to Heaven</span>
+            <h3 class="card-title">Hope Heaven has a Smoking Section</h3>
+            <p class="card-meta">Lyrics &amp; Melody by Robert Vickery II</p>
+            <p class="card-desc">Created as a gritty, irreverent country anthem that takes pearly-gate reverence and unapologetically adds a little bit of hell to heaven.</p>
             <div class="card-action">
-              <span class="card-link" onclick="openReader('song_midnight')">View Lyrics &rarr;</span>
+              <span class="card-link" onclick="openReader('song_smoking')">View Overview &rarr;</span>
+              <a href="https://www.youtube.com/watch?v=aVt-8Wa43_8&list=OLAK5uy_mu9DXUkD7Zlp7eYZMYD5Kimmn0uwM1VHY" target="_blank" rel="noopener noreferrer" class="card-link" style="font-size:0.75rem;">Listen on YouTube &nearr;</a>
             </div>
           </div>
         </article>
 
+        <!-- 2. How Will I Know -->
         <article class="work-card" data-category="songwriting">
           <div class="card-body">
-            <span class="card-genre">Songwriting &amp; Verse</span>
-            <h3 class="card-title">The Sandman</h3>
-            <p class="card-meta">Vickery &amp; The Fable Spinners</p>
-            <p class="card-desc">A somber, rhythm-driven folk ballad tracking nocturnal labor, Gulf Coast humidity, and the physical weight of wakefulness.</p>
+            <span class="card-genre">Songwriting &bull; First Love &amp; Innocence</span>
+            <h3 class="card-title">How Will I Know</h3>
+            <p class="card-meta">Lyrics &amp; Melody by Robert Vickery II</p>
+            <p class="card-desc">Crafted to capture the kinetic rush, unshielded innocence, and vulnerable emotional reckoning that defines first love.</p>
             <div class="card-action">
-              <span class="card-link" onclick="openReader('song_sandman')">View Lyrics &rarr;</span>
+              <span class="card-link" onclick="openReader('song_know')">View Overview &rarr;</span>
+              <a href="https://www.youtube.com/watch?v=vHS-fGU4V7g&list=OLAK5uy_kTb9f0-n7RunrNXZSK-i_qcW7NdzdX6Hw" target="_blank" rel="noopener noreferrer" class="card-link" style="font-size:0.75rem;">Listen on YouTube &nearr;</a>
             </div>
           </div>
         </article>
 
+        <!-- 3. Fifty Percent -->
         <article class="work-card" data-category="songwriting">
           <div class="card-body">
-            <span class="card-genre">Songwriting &amp; Verse</span>
-            <h3 class="card-title">Broken Into Purpose</h3>
-            <p class="card-meta">Vickery &amp; The Fable Spinners</p>
-            <p class="card-desc">Narrative verse arrangement examining endurance, resilience, and vocational renewal through Southern minimalist acoustic tradition.</p>
+            <span class="card-genre">Songwriting &bull; Cinematic Comedy &amp; Emotion</span>
+            <h3 class="card-title">Fifty Percent</h3>
+            <p class="card-meta">Lyrics &amp; Melody by Robert Vickery II</p>
+            <p class="card-desc">Takes a hilarious cinematic moment and translates it into an authentic musical expression of raw emotion, hesitation, and decisive action.</p>
             <div class="card-action">
-              <span class="card-link" onclick="openReader('song_purpose')">View Lyrics &rarr;</span>
+              <span class="card-link" onclick="openReader('song_fifty')">View Overview &rarr;</span>
+              <a href="https://www.youtube.com/watch?v=G5eARvW3waY&list=OLAK5uy_k31WMGiMxC1kU-a4D1sLbIz0Rmoe6vvJM" target="_blank" rel="noopener noreferrer" class="card-link" style="font-size:0.75rem;">Listen on YouTube &nearr;</a>
             </div>
           </div>
         </article>
@@ -1387,6 +1405,28 @@
             <div class="critique-author">Studio &amp; A&amp;R Listener Dispatches</div>
             <div class="critique-role">Songwriting &amp; Production Feedback</div>
           </article>
+        </div>
+      </section>
+
+      <!-- Dossier / Bio Section (Above Correspondence) -->
+      <section class="bio-section" id="dossier">
+        <div class="bio-grid">
+          <div class="bio-photo-card">
+            <img 
+              src="https://i.postimg.cc/brDcw4qq/BIOO.jpg" 
+              alt="Robert Vickery II seated in private book archive" 
+              class="bio-img" 
+              onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
+            >
+            <div id="photo-fallback" style="display:none; height:460px; align-items:center; justify-content:center; flex-direction:column; background:#090a0d; color:var(--orange-accent); font-family:var(--font-display);">
+              <span>Robert Vickery II</span>
+              <small style="color:var(--text-muted); margin-top:0.5rem;">Vickerian &bull; Author &bull; Educator</small>
+            </div>
+          </div>
+          <div class="bio-text">
+            <h2>The <span>Dossier</span></h2>
+            <p><strong>Robert Vickery II</strong> is an American author, essayist, poet, lyricist, and tenured professor originally from Montgomery, Alabama. His fiction and scholarship traverse Southern Gothic realism, psychological suspense, and the darker, subversive side of classic fairy tales. Bringing sixteen years of higher education instruction in English, literature, and philosophy, his research centers on Gulf Coast Somatic Conjure Theory, Southern material culture, and Mobile Hoodoo traditions, building upon Zora Neale Hurston's ethnography. He lives along the Gulf Coast with his rescue dog, Zeus. Author portfolio and portfolio works on FanStory: <a href="https://www.fanstory.com/mypage.jsp?userid=1078834" target="_blank" rel="noopener noreferrer">Robert Vickery II on FanStory</a>. Creative archive: <a href="https://vickerian.com">vickerian.com</a>.</p>
+          </div>
         </div>
       </section>
 
@@ -1435,28 +1475,6 @@
               <button type="submit" class="btn btn-orange" style="width: 100%; max-width: 320px;">Transmit Dispatch &rarr;</button>
             </div>
           </form>
-        </div>
-      </section>
-
-      <!-- Dossier / Bio Section with Hosted Bio Picture -->
-      <section class="bio-section" id="dossier">
-        <div class="bio-grid">
-          <div class="bio-photo-card">
-            <img 
-              src="https://i.postimg.cc/brDcw4qq/BIOO.jpg" 
-              alt="Robert Vickery II seated in private book archive" 
-              class="bio-img" 
-              onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
-            >
-            <div id="photo-fallback" style="display:none; height:460px; align-items:center; justify-content:center; flex-direction:column; background:#090a0d; color:var(--orange-accent); font-family:var(--font-display);">
-              <span>Robert Vickery II</span>
-              <small style="color:var(--text-muted); margin-top:0.5rem;">Vickerian &bull; Author &bull; Educator</small>
-            </div>
-          </div>
-          <div class="bio-text">
-            <h2>The <span>Dossier</span></h2>
-            <p><strong>Robert Vickery II</strong> is an American author, essayist, poet, lyricist, and tenured professor originally from Montgomery, Alabama. His fiction and scholarship traverse Southern Gothic realism, psychological suspense, and the darker, subversive side of classic fairy tales. Bringing sixteen years of higher education instruction in English, literature, and philosophy, his research centers on Gulf Coast Somatic Conjure Theory, Southern material culture, and Mobile Hoodoo traditions, building upon Zora Neale Hurston's ethnography. He lives along the Gulf Coast with his rescue dog, Zeus. Creative archive: <a href="https://vickerian.com">vickerian.com</a>.</p>
-          </div>
         </div>
       </section>
     </div>
@@ -1509,12 +1527,12 @@
     // Excerpt Database
     const excerpts = {
       cutoff: `<h4>The Cut-Off at Exit 53</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Selected by Editor Nancy K. Clark for the CommuterLit Halloween Horror / Thriller 2026 Contest (Top 5 Finalist &bull; Cash Prize Showcase). Scheduled for showcase feature October 26th &ndash; October 31st, 2026; 1st and 2nd place winners announced Monday, October 28th.</em></p><p><strong>Synopsis:</strong> Set against the shadowed backdrop of Mobile, Alabama, <em>The Cut-Off at Exit 53</em> tracks a high-concept immersive haunted attraction engineered inside an abandoned warehouse district. Designed around deep-seated Gulf Coast urban legends, town myths, and local folklore that native Mobilians whisper after midnight, the production derails when participants realize the staging is no longer simulated, the exits have sealed, and the presence moving through the walls was never part of the cast.</p><br><p>&ldquo;The wipers on the sedan had given up on clearing the glass twenty miles south of Evergreen. They merely dragged a greasy gray film of sleet back and forth across the windshield, turning the taillights of long-haul semis into bleeding smears of crimson...&rdquo;</p>`,
-      gingy: `<h4>How Gingy Got Ginger Snaps</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Published Contest Entry for the FanStory "Poem for a Child" Competition &bull; <a href="https://www.fanstory.com/displaystory.jsp?id=1194687" target="_blank" rel="noopener noreferrer" style="color:var(--orange-bright);">View Live on FanStory &nearr;</a></em></p><p>The witch did not use standard baker’s molasses. She used blackstrap dregs boiled down in an iron washpot, and instead of ginger root, she ground up dried dandelion taproots and horse-radish cured in chimney soot.</p><br><p>When the oven latch gave way, there was no cheerful piping of icing or peppermint cheer. He stood on the cookie sheet smelling like bitter vinegar and wet coal, his currant eyes hardened into cold flint.</p>`,
-      audit: `<h4>An Audit of the Silent Acres</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Contest Entry Selection &bull; FanStory "Dear God" Poetry Showcase &bull; <a href="https://www.fanstory.com/displaystory.jsp?id=1194760" target="_blank" rel="noopener noreferrer" style="color:var(--orange-bright);">View Live on FanStory &nearr;</a></em></p><p>It’s 4:20 in the morning. The coffee sitting on this laminate is cold, and the pine trees outside the window haven't started shedding mist yet. The highway won’t wake up for another forty minutes, so right now it’s just me, the hum of the refrigerator coil, and a yellow legal pad that won't let the math work out.</p><br><p>Yesterday a young mother on my route was counting out nickels for formula while her disconnect notice sat on the dash. Last week a thirty-year mechanic sat on a folding chair waiting on a sack of dry rice, staring at his palms like they were dead meat.</p><br><p>Take this tally for what it is, Padre: a tired man in Your ditch, leaning hard on a dull hoe, waiting on sundown to bring an honest wage.</p>`,
-      wax: `<h4>The Wax and the Wire</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Southern Gothic Historical Prose &bull; Zoetrope: All-Story 2026 Short Fiction Competition Submission (Under Active Review).</em></p><p>The recording needle gouged a single furrow into the revolving cylinder, throwing up a curl of dark beeswax like cedar shavings behind a block plane. In the parlor silence, the machine hummed with the mechanical pulse of early telegraph lines—retaining sound not as song, but as a permanent, fragile scar.</p>`,
-      song_midnight: `<h4>Midnight in Montgomery (Lyric Folio)</h4><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">The headlights catch the cypress knees where the asphalt gives up clean,<br>A pocket full of silver coin and memories in between.<br>The red clay drinks the river dry before the morning fog can rise,<br>And every signpost on the road wears a deputy's disguise.<br><br>We don't ask what the river kept; we only count the cost,<br>Between the boy who left the town and the shadow that he lost.</p>`,
-      song_sandman: `<h4>The Sandman (Lyric Folio)</h4><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">Sleep don't settle easy when the pine sap starts to bleed,<br>You trade your waking daylight for another mouth to feed.<br>The crickets take the graveyard shift, the rafters groan in time,<br>And every dollar earned at noon feels counterfeit by nine.<br><br>Rest is just a rumor that the timber forgot to keep,<br>When the marrow in your shoulders refuses to let you sleep.</p>`,
-      song_purpose: `<h4>Broken Into Purpose (Lyric Folio)</h4><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">You cannot temper iron till it passes through the coals,<br>The fractures in the timber show the grain beneath the whole.<br>They told you that the silence was an empty, wasted space,<br>Until you learned to read the scars carved deep across your face.<br><br>What broke you didn't finish you; it gave your hands a shape,<br>To hold the plow against the ridge and measure your escape.</p>`
+      gingy: `<h4>How Gingy Got Gingersnapped</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Published Contest Entry for the FanStory "Poem for a Child" Competition &bull; <a href="https://www.fanstory.com/displaystory.jsp?id=1194687" target="_blank" rel="noopener noreferrer" style="color:var(--orange-bright);">View Live on FanStory &nearr;</a></em></p><p>The witch did not use standard baker’s molasses. She used blackstrap dregs boiled down in an iron washpot, and instead of ginger root, she ground up dried dandelion taproots and horse-radish cured in chimney soot.</p><br><p>When the oven latch gave way, there was no cheerful piping of icing or peppermint cheer. He stood on the cookie sheet smelling like bitter vinegar and wet coal, his currant eyes hardened into cold flint.</p>`,
+      salt: `<h4>The Salt Line</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Published Southern Verse Selection &bull; <a href="https://www.fanstory.com/displaystory.jsp?id=1194788" target="_blank" rel="noopener noreferrer" style="color:var(--orange-bright);">View Live on FanStory &nearr;</a></em></p><p>The line is not drawn where the foam breaks white across the sand spit. It is marked five paces inland, where the scrub pine refuses to grow and the dried salt forms a crust so brittle it whispers under boot leather.</p><br><p>You do not cross the salt line after the tide turns out. The water might recede toward the Gulf, but whatever washed ashore on the evening swell stays behind in the marshes, watching the lights flicker out across the bay.</p>`,
+      wax: `<h4>The Wax and the Wire</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Southern Gothic Historical Prose &bull; Zoetrope: All-Story 2026 Short Fiction Competition Submission (Under Active Review).</em></p><p>A macabre retelling of a historical Florida love story gone awry, rendered through the choral, claustrophobic Southern Gothic aesthetic of William Faulkner’s <em>A Rose for Emily</em> and relocated to rural Alabama.</p><br><p>The recording needle gouged a single furrow into the revolving cylinder, throwing up a curl of dark beeswax like cedar shavings behind a block plane. In the parlor silence, the machine hummed with the mechanical pulse of early telegraph lines—retaining sound not as song, but as a permanent, fragile scar.</p>`,
+      song_smoking: `<h4>Hope Heaven has a Smoking Section</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Lyrics &amp; Melody by Robert Vickery II &bull; <a href="https://www.youtube.com/watch?v=aVt-8Wa43_8&list=OLAK5uy_mu9DXUkD7Zlp7eYZMYD5Kimmn0uwM1VHY" target="_blank" rel="noopener noreferrer" style="color:var(--orange-bright);">Listen on YouTube &nearr;</a></em></p><p><strong>Theme &amp; Meaning:</strong> A rough-cut, honest country anthem exploring redemption, unvarnished human habit, and bringing a little bit of hell along into the pearly gates. A song that trades spotless halos for gravel roads and late-night embers.</p><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">&ldquo;If St. Peter stands guard by the golden gate door,<br>I hope he don’t mind what I leave on the floor.<br>Put a spark in the dark where the angels don't look,<br>And fold down the page in the good judgment book...&rdquo;</p><br><p style="font-size:0.85rem; color:var(--text-muted);">Listen to the full release and access verified lyrics through official distribution on YouTube.</p>`,
+      song_know: `<h4>How Will I Know</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Lyrics &amp; Melody by Robert Vickery II &bull; <a href="https://www.youtube.com/watch?v=vHS-fGU4V7g&list=OLAK5uy_kTb9f0-n7RunrNXZSK-i_qcW7NdzdX6Hw" target="_blank" rel="noopener noreferrer" style="color:var(--orange-bright);">Listen on YouTube &nearr;</a></em></p><p><strong>Theme &amp; Meaning:</strong> Capturing the vulnerability, unblemished innocence, and emotional kineticism of first love—articulating the unanswerable hesitation before stepping into someone else's orbit.</p><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">&ldquo;How will I know if the compass is right,<br>Or just a stray lantern that flickers at night?&rdquo;</p><br><p style="font-size:0.85rem; color:var(--text-muted);">Listen to the full track and find complete verified lyrics via official streaming channels on YouTube.</p>`,
+      song_fifty: `<h4>Fifty Percent</h4><br><p style="color:var(--orange-accent); font-size:0.95rem; margin-bottom:1rem;"><em>Lyrics &amp; Melody by Robert Vickery II &bull; <a href="https://www.youtube.com/watch?v=G5eARvW3waY&list=OLAK5uy_k31WMGiMxC1kU-a4D1sLbIz0Rmoe6vvJM" target="_blank" rel="noopener noreferrer" style="color:var(--orange-bright);">Listen on YouTube &nearr;</a></em></p><p><strong>Theme &amp; Meaning:</strong> Taking an iconic, humorous cinematic trope and elevating it into an authentic expression of human desire, sudden courage, and the impulse to act when odds are cut right down the middle.</p><br><p style="font-style: italic; color: #ff9933; line-height: 1.7;">&ldquo;Give me fifty percent of an honest mistake,<br>Before the whole evening has nothing to break...&rdquo;</p><br><p style="font-size:0.85rem; color:var(--text-muted);">Listen to the full track and find complete verified lyrics via official streaming channels on YouTube.</p>`
     };
 
     function openReader(key) {
